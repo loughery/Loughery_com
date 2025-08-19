@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Creek.mp4 — Autoplay Loop with Sound</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { color-scheme: light dark; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    .wrap {
+      width: min(100vw, 100vh * 16/9);
+      max-width: 100vw;
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* change to 'cover' if you want edge-to-edge fill */
+      background: #000;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(0deg, rgba(0,0,0,.45), rgba(0,0,0,.45));
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+    }
+    .overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .btn {
+      appearance: none;
+      border: 0;
+      padding: 0.9rem 1.25rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      background: #ffffff;
+      color: #111;
+      box-shadow: 0 6px 24px rgba(0,0,0,.35);
+    }
+    .btn:active { transform: translateY(1px); }
+    .tip {
+      position: absolute;
+      bottom: .75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #ddd;
+      font-size: .85rem;
+      text-align: center;
+      padding: .25rem .5rem;
+      background: rgba(0,0,0,.35);
+      border-radius: 6px;
