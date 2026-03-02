@@ -1,69 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loughery</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      text-align: center;
-      padding: 50px;
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      font-size: 1.2em;
-      color: #666;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Loughery</title>
 
-    .login-box {
-      margin-top: 40px;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f3f2f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: fadeIn 1s ease forwards;
+}
 
-    input {
-      display: block;
-      margin: 8px auto;
-      padding: 8px;
-      width: 220px;
-      font-size: 0.95em;
-    }
+.container {
+  background: white;
+  padding: 40px 35px;
+  width: 320px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-radius: 6px;
+  text-align: center;
+  animation: slideUp .6s ease forwards;
+}
 
-    button {
-      padding: 8px 18px;
-      background: #0077cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+h1 {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #1b1b1b;
+}
 
-    button:hover {
-      background: #005fa3;
-    }
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border .2s ease, box-shadow .2s ease;
+}
 
-    .copyright {
-      margin-top: 30px;
-      font-size: 12px;
-      color: #777;
-    }
-  </style>
+input:focus {
+  outline: none;
+  border-color: #0078d4;
+  box-shadow: 0 0 0 2px rgba(0,120,212,.2);
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.login-btn {
+  background: #0078d4;
+  color: white;
+  margin-right: 8px;
+}
+
+.login-btn:hover {
+  background: #106ebe;
+  transform: translateY(-1px);
+}
+
+.clear-btn {
+  background: #e1dfdd;
+  color: #323130;
+}
+
+.clear-btn:hover {
+  background: #d2d0ce;
+  transform: translateY(-1px);
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #605e5c;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+</style>
 </head>
+
 <body>
 
+<div class="container">
   <h1>Loughery.com</h1>
 
-  <div class="login-box">
-    <input type="text" placeholder="Username" />
-    <input type="password" placeholder="Password" />
-    <button onclick="window.location.href='https://login.microsoftonline.com/'">
-      Login
+  <input type="text" id="username" placeholder="Email or username" />
+  <input type="password" id="password" placeholder="Password" />
+
+  <div class="button-row">
+    <button class="login-btn"
+      onclick="window.location.href='https://login.microsoftonline.com/'">
+      Sign in
+    </button>
+
+    <button class="clear-btn" onclick="clearFields()">
+      Clear
     </button>
   </div>
 
-  <p class="copyright">&copy; 2002-2026</p>
+  <div class="footer">
+    &copy; 2002-2026
+  </div>
+</div>
+
+<script>
+function clearFields() {
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
+}
+</script>
 
 </body>
 </html>
