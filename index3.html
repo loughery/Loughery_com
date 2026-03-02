@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Loughery Professional Services, LLC</title>
+<title>Loughery Professional Services, LLC.</title>
 
 <style>
 body {
@@ -13,25 +13,27 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   animation: fadeIn 1s ease forwards;
 }
 
 .container {
   background: white;
   padding: 40px 35px;
-  width: 340px;
+  width: min(90%, 420px); /* responsive width */
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   border-radius: 6px;
   text-align: center;
   animation: slideUp .6s ease forwards;
 }
 
+/* Single-line responsive heading */
 h1 {
   font-weight: 600;
-  font-size: 20px;
+  font-size: clamp(16px, 3vw, 22px); /* scales with screen */
   margin-bottom: 30px;
   color: #1b1b1b;
+  white-space: nowrap; /* prevents breaking */
 }
 
 input {
@@ -110,7 +112,7 @@ button {
 <body>
 
 <div class="container">
-  <h1>Loughery Professional Services, LLC</h1>
+  <h1>Loughery Professional Services, LLC.</h1>
 
   <input type="text" id="username" placeholder="Email or username" />
   <input type="password" id="password" placeholder="Password" />
