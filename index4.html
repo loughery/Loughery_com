@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Loughery Professional Services, LLC</title>
+
+<style>
+
+/* ===== MICROSOFT FONT STACK ===== */
+body {
+  margin: 0;
+  font-family: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff; /* white background */
+  color: #1b1b1b;
+}
+
+/* ===== LIGHT CARD ===== */
+.container {
+  padding: 65px 55px;
+  width: min(92%, 500px);
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  text-align: center;
+  animation: cardFade 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+@keyframes cardFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== ACCENT LINE ===== */
+.accent {
+  position: relative;
+  height: 3px;
+  width: 0;
+  margin: 0 auto 40px auto;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #0078d4, #4aa3ff);
+  animation:
+    growLine 2.4s ease forwards,
+    glowPulse 4s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes growLine {
+  from { width: 0; }
+  to { width: 160px; }
+}
+
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 0 4px rgba(0,120,212,.25); }
+  50% { box-shadow: 0 0 10px rgba(0,120,212,.4); }
+}
+
+.accent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.8),
+    transparent
+  );
+  animation: shimmer 7s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -40%; }
+  55% { left: 120%; }
+  100% { left: 120%; }
+}
+
+/* ===== HEADER ===== */
+h1 {
+  font-weight: 600;
+  font-size: clamp(18px, 2.6vw, 24px);
+  letter-spacing: 0.04em;
+  margin: 0 0 44px 0;
+  white-space: nowrap;
+  color: #1b1b1b;
+}
+
+/* ===== INPUTS ===== */
+input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  background: #fafafa;
+  transition: all .25s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0078d4;
+  box-shadow: 0 0 0 3px rgba(0,120,212,.15);
+  background: #ffffff;
+}
+
+/* ===== BUTTONS ===== */
+.button-row { display: flex; gap: 16px; }
+
+button {
+  flex: 1;
+  padding: 14px 0;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+/* Primary */
+.login-btn {
+  background: linear-gradient(135deg, #0078d4, #005fa3);
+  color: white;
+  border: none;
+}
+
+.login-btn:hover {
+  box-shadow: 0 8px 18px rgba(0,120,212,.3);
+  transform: translateY(-1px);
+}
+
+/* Secondary */
+.clear-btn {
+  background: #f2f2f2;
+  color: #444;
+  border: 1px solid #d0d0d0;
+}
+
+.clear-btn:hover {
+  background: #e6e6e6;
+  transform: translateY(-1px);
+}
+
+/* ===== FOOTER ===== */
+.footer-divider {
+  width: 60%;
+  height: 1px;
+  margin: 60px auto 18px auto;
+  background: #e5e5e5;
+}
+
+.footer {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #666;
+}
+
+.rights {
+  margin-top: 6px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+  color: #999;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="accent"></div>
+
+  <h1>Loughery Professional Services, LLC</h1>
+
+  <input type="text" placeholder="Email or username" />
+  <input type="password" placeholder="Password" />
+
+  <div class="button-row">
+    <button class="login-btn"
+      onclick="window.location.href='https://login.microsoftonline.com/'">
+      Sign in
+    </button>
+
+    <button class="clear-btn">
+      Clear
+    </button>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer">
+    &copy; 2002–2026&nbsp;&nbsp;&nbsp;&nbsp;Loughery.com
+  </div>
+
+  <div class="rights">
+    All Rights Reserved
+  </div>
+
+</div>
+
+</body>
+</html>
