@@ -7,7 +7,7 @@
 
 <style>
 
-/* ===== MICROSOFT SYSTEM FONT STACK ===== */
+/* ===== MICROSOFT FONT STACK ===== */
 body {
   margin: 0;
   font-family: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
@@ -21,7 +21,7 @@ body {
   overflow: hidden;
 }
 
-/* subtle tech texture */
+/* subtle texture */
 body::before {
   content: "";
   position: absolute;
@@ -49,7 +49,7 @@ body::after {
   to   { transform: translate(30px, 15px); opacity: .65; }
 }
 
-/* ===== GLASS CONTAINER ===== */
+/* ===== GLASS CARD ===== */
 .container {
   position: relative;
   padding: 65px 55px;
@@ -71,7 +71,7 @@ body::after {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== RESTRAINED ACCENT LINE ===== */
+/* ===== FULL RESTORED ACCENT LINE ===== */
 .accent {
   position: relative;
   height: 3px;
@@ -80,8 +80,8 @@ body::after {
   border-radius: 3px;
   background: linear-gradient(90deg, #4aa3ff, #6be4ff);
   animation:
-    growLine 2.8s ease forwards,
-    glowPulse 5s ease-in-out infinite;
+    growLine 2.6s ease forwards,
+    glowPulse 4s ease-in-out infinite;
   overflow: hidden;
 }
 
@@ -90,13 +90,13 @@ body::after {
   to { width: 160px; }
 }
 
-/* softer glow */
+/* subtle glow pulse */
 @keyframes glowPulse {
-  0%,100% { box-shadow: 0 0 4px rgba(74,163,255,.25); }
-  50% { box-shadow: 0 0 10px rgba(74,163,255,.45); }
+  0%,100% { box-shadow: 0 0 6px rgba(74,163,255,.35); }
+  50% { box-shadow: 0 0 16px rgba(74,163,255,.55); }
 }
 
-/* slower shimmer */
+/* shimmer sweep */
 .accent::after {
   content: "";
   position: absolute;
@@ -107,15 +107,15 @@ body::after {
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255,255,255,.45),
+    rgba(255,255,255,.5),
     transparent
   );
-  animation: shimmer 8s ease-in-out infinite;
+  animation: shimmer 7s ease-in-out infinite;
 }
 
 @keyframes shimmer {
   0% { left: -40%; }
-  60% { left: 120%; }
+  55% { left: 120%; }
   100% { left: 120%; }
 }
 
