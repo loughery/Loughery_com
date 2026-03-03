@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Loughery Professional Services, LLC.</title>
+<title>Loughery Professional Services, LLC</title>
 
 <style>
 
@@ -21,6 +21,7 @@ body {
   overflow: hidden;
 }
 
+/* Subtle tech texture */
 body::before {
   content: "";
   position: absolute;
@@ -31,25 +32,41 @@ body::before {
   pointer-events: none;
 }
 
+/* ===== Ambient Glow Behind Card ===== */
+body::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(74,163,255,.25), transparent 70%);
+  filter: blur(80px);
+  animation: floatGlow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes floatGlow {
+  from { transform: translate(-40px, -20px); opacity: .6; }
+  to   { transform: translate(40px, 20px); opacity: .8; }
+}
+
 /* ===== GLASS CONTAINER ===== */
 .container {
   position: relative;
   padding: 65px 55px;
   width: min(92%, 500px);
   border-radius: 20px;
-  backdrop-filter: blur(18px);
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.14);
   box-shadow:
-    0 30px 80px rgba(0,0,0,0.45),
-    inset 0 0 25px rgba(255,255,255,0.03);
+    0 30px 90px rgba(0,0,0,0.5),
+    inset 0 0 30px rgba(255,255,255,0.04);
   text-align: center;
   animation: cardFade 1.2s ease forwards;
   opacity: 0;
   transform: translateY(10px);
 }
 
-/* Micro fade-in */
 @keyframes cardFade {
   to {
     opacity: 1;
@@ -57,50 +74,20 @@ body::before {
   }
 }
 
-/* ===== Animated Accent Line ===== */
+/* ===== Accent Line ===== */
 .accent {
   position: relative;
   height: 3px;
-  width: 0;
+  width: 160px;
   margin: 0 auto 38px auto;
   border-radius: 3px;
   background: linear-gradient(90deg, #4aa3ff, #6be4ff);
-  animation: growLine 2.4s ease forwards, glowPulse 3.5s ease-in-out infinite;
-  overflow: hidden;
+  animation: glowPulse 3.5s ease-in-out infinite;
 }
 
-@keyframes growLine {
-  from { width: 0; }
-  to { width: 160px; }
-}
-
-/* Glow pulse */
 @keyframes glowPulse {
   0%,100% { box-shadow: 0 0 6px rgba(74,163,255,.4); }
-  50% { box-shadow: 0 0 18px rgba(74,163,255,.8); }
-}
-
-/* Shimmer sweep */
-.accent::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -40%;
-  width: 40%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,.6),
-    transparent
-  );
-  animation: shimmer 4s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0% { left: -40%; }
-  50% { left: 120%; }
-  100% { left: 120%; }
+  50% { box-shadow: 0 0 20px rgba(74,163,255,.8); }
 }
 
 /* ===== Title ===== */
@@ -156,27 +143,26 @@ button {
   background: linear-gradient(135deg, #4aa3ff, #2f80ed);
   color: white;
   border: none;
-  box-shadow: inset 0 0 10px rgba(255,255,255,.15);
+  box-shadow: inset 0 0 12px rgba(255,255,255,.2);
 }
 
 .login-btn:hover {
   box-shadow:
-    inset 0 0 14px rgba(255,255,255,.25),
-    0 12px 28px rgba(74,163,255,.45);
+    inset 0 0 16px rgba(255,255,255,.25),
+    0 14px 30px rgba(74,163,255,.45);
   transform: translateY(-2px);
 }
 
-/* Ghost secondary */
+/* Improved Clear Button (cool steel blue tone) */
 .clear-btn {
-  background: transparent;
-  color: #c9d1d9;
-  border: 1px solid rgba(255,255,255,0.25);
+  background: linear-gradient(135deg, #3a4655, #2c3642);
+  color: #d6dde6;
+  border: 1px solid rgba(255,255,255,0.18);
 }
 
 .clear-btn:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: #4aa3ff;
-  color: #ffffff;
+  background: linear-gradient(135deg, #455364, #354252);
+  box-shadow: 0 10px 20px rgba(0,0,0,.35);
   transform: translateY(-2px);
 }
 
@@ -188,14 +174,15 @@ button {
   color: rgba(255,255,255,.5);
 }
 
-/* ===== PRINT VERSION ===== */
+/* ===== PRINT ===== */
 @media print {
   body {
     background: #ffffff !important;
     color: #000000 !important;
   }
 
-  body::before {
+  body::before,
+  body::after {
     display: none;
   }
 
@@ -206,17 +193,9 @@ button {
     box-shadow: none;
   }
 
-  h1 {
-    color: #000000;
-  }
-
-  input, button {
-    display: none;
-  }
-
-  .footer {
-    color: #000000;
-  }
+  h1 { color: #000000; }
+  input, button { display: none; }
+  .footer { color: #000000; }
 }
 
 </style>
@@ -228,10 +207,10 @@ button {
 
   <div class="accent"></div>
 
-  <h1>Loughery Professional Services, LLC.</h1>
+  <h1>Loughery Professional Services, LLC</h1>
 
-  <input type="text" id="username" placeholder="Email or username" />
-  <input type="password" id="password" placeholder="Password" />
+  <input type="text" placeholder="Email or username" />
+  <input type="password" placeholder="Password" />
 
   <div class="button-row">
     <button class="login-btn"
@@ -239,7 +218,7 @@ button {
       Sign in
     </button>
 
-    <button class="clear-btn" onclick="clearFields()">
+    <button class="clear-btn">
       Clear
     </button>
   </div>
@@ -249,13 +228,6 @@ button {
   </div>
 
 </div>
-
-<script>
-function clearFields() {
-  document.getElementById("username").value = "";
-  document.getElementById("password").value = "";
-}
-</script>
 
 </body>
 </html>
