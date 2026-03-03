@@ -18,6 +18,7 @@ body {
   color: #e6edf3;
   background: radial-gradient(circle at 30% 30%, #1c2430, #0f141a 70%);
   position: relative;
+  overflow: hidden;
 }
 
 body::before {
@@ -26,36 +27,80 @@ body::before {
   inset: 0;
   background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 3px 3px;
-  opacity: .4;
+  opacity: .35;
   pointer-events: none;
 }
 
 /* ===== GLASS CONTAINER ===== */
 .container {
   position: relative;
-  padding: 60px 50px;
-  width: min(92%, 480px);
-  border-radius: 18px;
-  backdrop-filter: blur(14px);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  padding: 65px 55px;
+  width: min(92%, 500px);
+  border-radius: 20px;
+  backdrop-filter: blur(18px);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.45),
+    inset 0 0 25px rgba(255,255,255,0.03);
   text-align: center;
+  animation: cardFade 1.2s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Micro fade-in */
+@keyframes cardFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===== Animated Accent Line ===== */
 .accent {
+  position: relative;
   height: 3px;
   width: 0;
-  margin: 0 auto 36px auto;
+  margin: 0 auto 38px auto;
   border-radius: 3px;
   background: linear-gradient(90deg, #4aa3ff, #6be4ff);
-  animation: growLine 1.2s ease forwards;
+  animation: growLine 2.4s ease forwards, glowPulse 3.5s ease-in-out infinite;
+  overflow: hidden;
 }
 
 @keyframes growLine {
   from { width: 0; }
-  to { width: 80px; }
+  to { width: 160px; }
+}
+
+/* Glow pulse */
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 0 6px rgba(74,163,255,.4); }
+  50% { box-shadow: 0 0 18px rgba(74,163,255,.8); }
+}
+
+/* Shimmer sweep */
+.accent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.6),
+    transparent
+  );
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -40%; }
+  50% { left: 120%; }
+  100% { left: 120%; }
 }
 
 /* ===== Title ===== */
@@ -63,7 +108,7 @@ h1 {
   font-weight: 500;
   font-size: clamp(18px, 2.6vw, 26px);
   letter-spacing: 0.06em;
-  margin: 0 0 42px 0;
+  margin: 0 0 44px 0;
   white-space: nowrap;
   color: #ffffff;
 }
@@ -71,12 +116,12 @@ h1 {
 /* ===== Inputs ===== */
 input {
   width: 100%;
-  padding: 13px;
-  margin-bottom: 22px;
+  padding: 14px;
+  margin-bottom: 24px;
   font-size: 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.06);
   color: #ffffff;
   transition: all .25s ease;
 }
@@ -88,78 +133,56 @@ input::placeholder {
 input:focus {
   outline: none;
   border-color: #4aa3ff;
-  box-shadow: 0 0 0 3px rgba(74,163,255,.2);
+  box-shadow: 0 0 0 3px rgba(74,163,255,.25);
 }
 
 /* ===== Buttons ===== */
 .button-row {
   display: flex;
-  gap: 14px;
+  gap: 16px;
 }
 
 button {
   flex: 1;
-  padding: 13px 0;
+  padding: 14px 0;
   font-size: 14px;
-  border-radius: 10px;
-  border: none;
+  border-radius: 12px;
   cursor: pointer;
   transition: all .25s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-/* ===== Ripple Effect ===== */
-button::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.4);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-
-button:active::after {
-  width: 200%;
-  height: 200%;
-  transition: width .4s ease, height .4s ease;
-}
-
-/* ===== Primary ===== */
+/* Primary */
 .login-btn {
   background: linear-gradient(135deg, #4aa3ff, #2f80ed);
   color: white;
-  box-shadow: inset 0 0 8px rgba(255,255,255,.15);
+  border: none;
+  box-shadow: inset 0 0 10px rgba(255,255,255,.15);
 }
 
 .login-btn:hover {
   box-shadow:
-    inset 0 0 12px rgba(255,255,255,.2),
-    0 10px 25px rgba(74,163,255,.4);
+    inset 0 0 14px rgba(255,255,255,.25),
+    0 12px 28px rgba(74,163,255,.45);
   transform: translateY(-2px);
 }
 
-/* ===== Secondary ===== */
+/* Ghost secondary */
 .clear-btn {
-  background: linear-gradient(135deg, #2c3642, #1f2731);
+  background: transparent;
   color: #c9d1d9;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: inset 0 0 6px rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
 .clear-btn:hover {
-  background: linear-gradient(135deg, #364152, #273140);
-  box-shadow:
-    inset 0 0 10px rgba(255,255,255,.08),
-    0 8px 18px rgba(0,0,0,.35);
+  background: rgba(255,255,255,0.08);
+  border-color: #4aa3ff;
+  color: #ffffff;
   transform: translateY(-2px);
 }
 
 /* ===== Footer ===== */
 .footer {
-  margin-top: 55px;
+  margin-top: 60px;
   font-size: 12px;
   letter-spacing: 0.08em;
   color: rgba(255,255,255,.5);
