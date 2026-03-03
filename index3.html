@@ -3,104 +3,144 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Loughery Professional Services, LLC</title>
+<title>Loughery Professional Services, LLC.</title>
 
 <style>
+/* ===== BACKGROUND ===== */
 body {
   margin: 0;
   font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-  background: #f5f5f5;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  color: #1f1f1f;
+  color: #e6edf3;
+
+  /* subtle dark gradient */
+  background: radial-gradient(circle at 30% 30%, #1c2430, #0f141a 70%);
+
+  /* subtle texture overlay */
+  position: relative;
 }
 
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: .4;
+  pointer-events: none;
+}
+
+/* ===== GLASS CONTAINER ===== */
 .container {
-  background: #ffffff;
-  padding: 50px 40px;
-  width: min(92%, 440px);
-  border-radius: 4px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  position: relative;
+  padding: 60px 50px;
+  width: min(92%, 480px);
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
   text-align: center;
 }
 
-/* Thin corporate accent line */
+/* ===== Animated Accent Line ===== */
 .accent {
-  height: 2px;
-  width: 48px;
-  background: #1f3a5f;
-  margin: 0 auto 28px auto;
+  height: 3px;
+  width: 0;
+  margin: 0 auto 36px auto;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #4aa3ff, #6be4ff);
+  animation: growLine 1.2s ease forwards;
 }
 
-/* Elegant scaling title */
+@keyframes growLine {
+  from { width: 0; }
+  to { width: 80px; }
+}
+
+/* ===== Title ===== */
 h1 {
   font-weight: 500;
-  font-size: clamp(18px, 2.8vw, 24px);
-  letter-spacing: 0.04em;
-  margin: 0 0 36px 0;
+  font-size: clamp(18px, 2.6vw, 26px);
+  letter-spacing: 0.06em;
+  margin: 0 0 42px 0;
   white-space: nowrap;
+  color: #ffffff;
 }
 
-/* Inputs */
+/* ===== Inputs ===== */
 input {
   width: 100%;
-  padding: 11px;
-  margin-bottom: 18px;
+  padding: 13px;
+  margin-bottom: 22px;
   font-size: 14px;
-  border: 1px solid #d2d2d2;
-  border-radius: 3px;
-  background: #fafafa;
-  transition: border .2s ease;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: #ffffff;
+  transition: all .25s ease;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,.5);
 }
 
 input:focus {
   outline: none;
-  border-color: #1f3a5f;
-  background: #ffffff;
+  border-color: #4aa3ff;
+  box-shadow: 0 0 0 3px rgba(74,163,255,.2);
 }
 
-/* Buttons */
+/* ===== Buttons ===== */
 .button-row {
   display: flex;
-  gap: 10px;
+  gap: 14px;
 }
 
 button {
   flex: 1;
-  padding: 11px 0;
+  padding: 13px 0;
   font-size: 14px;
-  border-radius: 3px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: background .2s ease;
+  transition: all .25s ease;
 }
 
+/* Gradient primary */
 .login-btn {
-  background: #1f3a5f;
+  background: linear-gradient(135deg, #4aa3ff, #2f80ed);
   color: white;
 }
 
 .login-btn:hover {
-  background: #162b46;
+  box-shadow: 0 10px 25px rgba(74,163,255,.4);
+  transform: translateY(-2px);
 }
 
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* Secondary */
 .clear-btn {
-  background: #e6e6e6;
-  color: #333;
+  background: rgba(255,255,255,0.08);
+  color: #e6edf3;
 }
 
 .clear-btn:hover {
-  background: #d8d8d8;
+  background: rgba(255,255,255,0.15);
 }
 
-/* Footer */
+/* ===== Footer ===== */
 .footer {
-  margin-top: 40px;
+  margin-top: 55px;
   font-size: 12px;
-  letter-spacing: 0.06em;
-  color: #777;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,.5);
 }
 </style>
 </head>
@@ -111,7 +151,7 @@ button {
 
   <div class="accent"></div>
 
-  <h1>Loughery Professional Services, LLC</h1>
+  <h1>Loughery Professional Services, LLC.</h1>
 
   <input type="text" id="username" placeholder="Email or username" />
   <input type="password" id="password" placeholder="Password" />
