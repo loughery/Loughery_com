@@ -3,108 +3,104 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Loughery Professional Services, LLC.</title>
+<title>Loughery Professional Services, LLC</title>
 
 <style>
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f3f2f1;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  animation: fadeIn 1s ease forwards;
+  color: #1f1f1f;
 }
 
 .container {
-  background: white;
-  padding: 40px 35px;
-  width: min(90%, 420px); /* responsive width */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  border-radius: 6px;
+  background: #ffffff;
+  padding: 50px 40px;
+  width: min(92%, 440px);
+  border-radius: 4px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
   text-align: center;
-  animation: slideUp .6s ease forwards;
 }
 
-/* Single-line responsive heading */
+/* Thin corporate accent line */
+.accent {
+  height: 2px;
+  width: 48px;
+  background: #1f3a5f;
+  margin: 0 auto 28px auto;
+}
+
+/* Elegant scaling title */
 h1 {
-  font-weight: 600;
-  font-size: clamp(16px, 3vw, 22px); /* scales with screen */
-  margin-bottom: 30px;
-  color: #1b1b1b;
-  white-space: nowrap; /* prevents breaking */
+  font-weight: 500;
+  font-size: clamp(18px, 2.8vw, 24px);
+  letter-spacing: 0.04em;
+  margin: 0 0 36px 0;
+  white-space: nowrap;
 }
 
+/* Inputs */
 input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 11px;
+  margin-bottom: 18px;
   font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border .2s ease, box-shadow .2s ease;
+  border: 1px solid #d2d2d2;
+  border-radius: 3px;
+  background: #fafafa;
+  transition: border .2s ease;
 }
 
 input:focus {
   outline: none;
-  border-color: #0078d4;
-  box-shadow: 0 0 0 2px rgba(0,120,212,.2);
+  border-color: #1f3a5f;
+  background: #ffffff;
 }
 
+/* Buttons */
 .button-row {
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
 }
 
 button {
   flex: 1;
-  padding: 10px 0;
+  padding: 11px 0;
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: 3px;
   border: none;
   cursor: pointer;
-  transition: all .2s ease;
+  transition: background .2s ease;
 }
 
 .login-btn {
-  background: #0078d4;
+  background: #1f3a5f;
   color: white;
-  margin-right: 8px;
 }
 
 .login-btn:hover {
-  background: #106ebe;
-  transform: translateY(-1px);
+  background: #162b46;
 }
 
 .clear-btn {
-  background: #e1dfdd;
-  color: #323130;
+  background: #e6e6e6;
+  color: #333;
 }
 
 .clear-btn:hover {
-  background: #d2d0ce;
-  transform: translateY(-1px);
+  background: #d8d8d8;
 }
 
+/* Footer */
 .footer {
-  margin-top: 30px;
+  margin-top: 40px;
   font-size: 12px;
-  color: #605e5c;
-  letter-spacing: .05em;
-}
-
-/* Animations */
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(12px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  letter-spacing: 0.06em;
+  color: #777;
 }
 </style>
 </head>
@@ -112,7 +108,10 @@ button {
 <body>
 
 <div class="container">
-  <h1>Loughery Professional Services, LLC.</h1>
+
+  <div class="accent"></div>
+
+  <h1>Loughery Professional Services, LLC</h1>
 
   <input type="text" id="username" placeholder="Email or username" />
   <input type="password" id="password" placeholder="Password" />
@@ -129,8 +128,9 @@ button {
   </div>
 
   <div class="footer">
-    &copy; 2002-2026&nbsp;&nbsp;&nbsp;&nbsp;Loughery.com
+    &copy; 2002–2026&nbsp;&nbsp;&nbsp;&nbsp;Loughery.com
   </div>
+
 </div>
 
 <script>
