@@ -147,6 +147,15 @@ button {
   color: #999;
 }
 
+/* ===== TIMESTAMP ===== */
+.timestamp {
+  margin-top: 8px;
+  font-size: 11px;
+  font-style: italic;
+  color: #777;
+  letter-spacing: .05em;
+}
+
 /* ===== MOBILE STACKING ===== */
 @media (max-width: 600px) {
 
@@ -200,40 +209,44 @@ button {
     All Rights Reserved
   </div>
 
+  <div class="timestamp" id="lastModified"></div>
+
 </div>
 
 <script>
+
 function clearFields() {
   document.getElementById("username").value = "";
   document.getElementById("password").value = "";
 }
-</script>
 
-<script>
+/* ===== LAST MODIFIED TIMESTAMP ===== */
 
 const lastModified = new Date(document.lastModified);
 
-const parts = new Intl.DateTimeFormat('en-US', {
-timeZone: 'America/New_York',
-month: 'short',
-day: '2-digit',
-year: 'numeric',
-hour: 'numeric',
-minute: '2-digit',
-hour12: true,
-timeZoneName: 'short'
-}).formatToParts(lastModified);
+const formatter = new Intl.DateTimeFormat('en-US', {
+  timeZone: 'America/New_York',
+  month: 'short',
+  day: '2-digit',
+  year: 'numeric',
+  hour: 'numeric',
+  minute: '2-digit',
+  hour12: true,
+  timeZoneName: 'short'
+});
 
-let values = {};
-parts.forEach(p => values[p.type] = p.value);
+const parts = formatter.formatToParts(lastModified);
+
+let v = {};
+parts.forEach(p => v[p.type] = p.value);
 
 const formatted =
-`${values.month} ${values.day}, ${values.year} — ${values.hour}:${values.minute} ${values.dayPeriod} ${values.timeZoneName}`;
+`${v.month} ${v.day}, ${v.year} — ${v.hour}:${v.minute} ${v.dayPeriod} ${v.timeZoneName}`;
 
 document.getElementById("lastModified").textContent =
 "Last update: " + formatted;
 
-</script>  
+</script>
 
 </body>
 </html>
