@@ -29,7 +29,7 @@ padding:24px;
 .container{
 width:100%;
 max-width:520px;
-padding:clamp(28px,6vw,60px);
+padding:clamp(18px,4vw,40px);   /* reduced top padding */
 border-radius:18px;
 background:#ffffff;
 border:1px solid #c8c8c8;
@@ -38,7 +38,7 @@ text-align:center;
 animation:cardFade 1s ease forwards;
 opacity:0;
 transform:translateY(6px);
-}
+} 
 
 @keyframes cardFade{
 to{opacity:1;transform:translateY(0)}
@@ -46,20 +46,21 @@ to{opacity:1;transform:translateY(0)}
 
 /* LOGO */
 
+/* LOGO */
+
 .logo{
 display:block;
-margin:0 auto 24px auto;
-width:100%;
-max-width:100%;
+margin:0 auto 10px auto;   /* reduced space below logo */
+width:80%;
 height:auto;
 }
 
-/* ACCENT */
+/* ACCENT LINE */
 
 .accent{
 height:3px;
-width:0;
-margin:0 auto 32px auto;
+width:40%;                 /* visually aligned with logo width */
+margin:6px auto 22px auto; /* tight spacing around accent */
 border-radius:3px;
 background:linear-gradient(90deg,#0078d4,#4aa3ff);
 animation:growLine 2s ease forwards;
