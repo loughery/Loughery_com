@@ -29,7 +29,7 @@ padding:24px;
 .container{
 width:100%;
 max-width:520px;
-padding:clamp(18px,4vw,40px);   /* reduced top padding */
+padding:18px 40px 40px 40px;   /* much tighter top spacing */
 border-radius:18px;
 background:#ffffff;
 border:1px solid #c8c8c8;
@@ -38,7 +38,7 @@ text-align:center;
 animation:cardFade 1s ease forwards;
 opacity:0;
 transform:translateY(6px);
-} 
+}
 
 @keyframes cardFade{
 to{opacity:1;transform:translateY(0)}
@@ -46,24 +46,11 @@ to{opacity:1;transform:translateY(0)}
 
 /* LOGO */
 
-/* LOGO */
-
 .logo{
 display:block;
-margin:0 auto 10px auto;   /* reduced space below logo */
+margin:0 auto 6px auto;
 width:80%;
 height:auto;
-}
-
-/* ACCENT LINE */
-
-.accent{
-height:3px;
-width:40%;                 /* visually aligned with logo width */
-margin:6px auto 22px auto; /* tight spacing around accent */
-border-radius:3px;
-background:linear-gradient(90deg,#0078d4,#4aa3ff);
-animation:growLine 2s ease forwards;
 }
 
 @keyframes growLine{
@@ -79,7 +66,22 @@ font-weight:600;
 font-size:clamp(22px,4vw,28px);
 letter-spacing:.06em;
 line-height:1.2;
-margin:0 0 36px 0;
+margin:10px 0 30px 0;
+position:relative;
+display:inline-block;
+padding-bottom:10px;
+}
+
+h1::after{
+content:"";
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+bottom:0;
+width:90px;
+height:3px;
+border-radius:3px;
+background:linear-gradient(90deg,#0078d4,#4aa3ff);
 }
 
 /* INPUTS */
@@ -259,8 +261,6 @@ max-width:180px;
 <div class="container">
 
 <img src="group.png" class="logo" alt="Loughery Group Logo">
-
-<div class="accent"></div>
 
 <!-- <h1>The Loughery Group</h1> -->
 
