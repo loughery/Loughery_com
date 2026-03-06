@@ -46,7 +46,7 @@ to{opacity:1;transform:translateY(0)}
 
 /* LOGO */
 
-.logo{
+/* .logo{
 display:block;
 margin:0 auto 6px auto;
 width:95%;
@@ -56,8 +56,23 @@ height:auto;
 @keyframes growLine{
 from{width:0}
 to{width:160px}
+} */
+
+ /* animated line under logo */
+
+.logo-line{
+height:3px;
+width:0;
+margin:8px auto 24px auto;
+border-radius:3px;
+background:linear-gradient(90deg,#0078d4,#4aa3ff);
+animation:logoLineGrow 1.8s ease forwards;
 }
 
+@keyframes logoLineGrow{
+to{width:50%;}
+}
+ 
 /* TITLE */
 
 h1{
@@ -261,6 +276,8 @@ max-width:180px;
 <div class="container">
 
 <img src="Lgroup.png" class="logo" alt="Loughery Group Logo">
+
+<div class="logo-line"></div>
 
 <!-- <h1>The Loughery Group</h1> -->
 
