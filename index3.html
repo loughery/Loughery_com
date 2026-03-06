@@ -22,8 +22,6 @@ justify-content:center;
 padding:24px;
 }
 
-/* main login card */
-
 .container{
 width:100%;
 max-width:520px;
@@ -147,8 +145,6 @@ letter-spacing:.08em;
 color:#999;
 }
 
-/* LAST UPDATE OUTSIDE BOX */
-
 .timestamp{
 margin-top:18px;
 font-size:11px;
@@ -213,20 +209,42 @@ flex-direction:column;
 
 <h1>Loughery Professional Services, LLC</h1>
 
-<input type="text" placeholder="Email or username">
-<input type="password" placeholder="Password">
+<form autocomplete="off">
+
+<!-- dummy field to absorb autofill -->
+<input type="text" style="display:none">
+
+<input
+type="text"
+name="user_field"
+placeholder="Email or username"
+autocomplete="off"
+autocorrect="off"
+autocapitalize="none"
+spellcheck="false">
+
+<input
+type="password"
+name="pass_field"
+placeholder="Password"
+autocomplete="new-password"
+autocorrect="off"
+autocapitalize="none"
+spellcheck="false">
 
 <div class="button-row">
 
-<button class="login-btn" onclick="showDialog()">
+<button type="button" class="login-btn" onclick="showDialog()">
 Login
 </button>
 
-<button class="clear-btn" onclick="clearFields()">
+<button type="button" class="clear-btn" onclick="clearFields()">
 Clear
 </button>
 
 </div>
+
+</form>
 
 <div class="or-divider">— OR —</div>
 
@@ -246,8 +264,6 @@ All Rights Reserved
 </div>
 
 </div>
-
-<!-- LAST UPDATE MOVED OUTSIDE BOX -->
 
 <div class="timestamp" id="lastModified"></div>
 
