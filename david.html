@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>David | Author</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Inter, sans-serif;
+background:#f8f8f8;
+color:#222;
+line-height:1.6;
+}
+
+header{
+background:#111;
+color:white;
+padding:25px 10%;
+position:sticky;
+top:0;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+nav h1{
+font-family:Merriweather;
+font-weight:700;
+font-size:22px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:20px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+}
+
+nav a:hover{
+opacity:.7;
+}
+
+.hero{
+padding:100px 10%;
+background:white;
+text-align:center;
+}
+
+.hero h2{
+font-family:Merriweather;
+font-size:40px;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+font-size:18px;
+}
+
+.hero img{
+margin-top:40px;
+width:180px;
+border-radius:8px;
+}
+
+.section{
+padding:80px 10%;
+max-width:1100px;
+margin:auto;
+}
+
+.section h2{
+font-family:Merriweather;
+font-size:32px;
+margin-bottom:40px;
+text-align:center;
+}
+
+.book{
+display:flex;
+flex-wrap:wrap;
+gap:40px;
+align-items:center;
+justify-content:center;
+}
+
+.book img{
+width:220px;
+}
+
+.book-info{
+max-width:500px;
+}
+
+.publications ul{
+list-style:none;
+}
+
+.publications li{
+padding:10px 0;
+border-bottom:1px solid #ddd;
+}
+
+.achievements ul{
+list-style:none;
+}
+
+.achievements li{
+padding:10px 0;
+border-bottom:1px solid #ddd;
+}
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+display:inline-block;
+margin-top:20px;
+background:#111;
+color:white;
+padding:12px 25px;
+text-decoration:none;
+border-radius:4px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+background:#eee;
+margin-top:60px;
+}
+
+@media(max-width:800px){
+
+.hero h2{
+font-size:30px;
+}
+
+.book{
+flex-direction:column;
+text-align:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<h1>David</h1>
+
+<ul>
+<li><a href="#book">Book</a></li>
+<li><a href="#publications">Publications</a></li>
+<li><a href="#achievements">Achievements</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h2>Author • Researcher • Storyteller</h2>
+
+<p>
+
+David writes about ideas, history, and investigative topics that challenge
+readers to think differently. His work combines careful research,
+clear storytelling, and thoughtful analysis.
+
+</p>
+
+<img src="david.jpg">
+
+</section>
+
+<section class="section" id="book">
+
+<h2>Featured Book</h2>
+
+<div class="book">
+
+<img src="bookcover.jpg">
+
+<div class="book-info">
+
+<h3>The Title of David's Book</h3>
+
+<p>
+
+This groundbreaking work explores complex questions through investigative
+research and compelling storytelling.
+
+</p>
+
+<p>
+
+The book has been widely discussed and has reached audiences interested in
+science, public policy, and investigative journalism.
+
+</p>
+
+<a href="#" style="display:inline-block;margin-top:15px;background:#111;color:white;padding:10px 20px;text-decoration:none;border-radius:4px;">Buy the Book</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section publications" id="publications">
+
+<h2>Publications</h2>
+
+<ul>
+
+<li>Major Investigative Feature — National Magazine</li>
+
+<li>Research Paper — Academic Review Journal</li>
+
+<li>Essay — Public Policy Quarterly</li>
+
+<li>Guest Commentary — National News Outlet</li>
+
+<li>Editorial Contributions — Various Publications</li>
+
+</ul>
+
+</section>
+
+<section class="section achievements" id="achievements">
+
+<h2>Achievements</h2>
+
+<ul>
+
+<li>Recipient of National Journalism Award</li>
+
+<li>Invited speaker at academic conferences</li>
+
+<li>Featured guest on podcasts and television</li>
+
+<li>Research cited in international publications</li>
+
+<li>Contributor to public policy discussions</li>
+
+</ul>
+
+</section>
+
+<section class="section contact" id="contact">
+
+<h2>Contact</h2>
+
+<p>
+
+For speaking engagements, interviews, or media inquiries:
+
+</p>
+
+<a href="mailto:contact@davidauthor.com">Contact David</a>
+
+</section>
+
+<footer>
+
+<p>© 2026 David | Author Website</p>
+
+</footer>
+
+</body>
+</html>
