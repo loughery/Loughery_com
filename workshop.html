@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beginner's Writing Workshop | David C. O'Reilly</title>
+<meta name="description" content="Beginner's writing workshop by David C. O'Reilly with private preregistration form.">
+<style>
+:root{
+  --bg:#f7f2e8;
+  --paper:#fffdf8;
+  --ink:#161616;
+  --muted:#55514a;
+  --rule:#d8cfbf;
+  --accent:#111;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height:1.7;
+}
+a{color:inherit}
+.container{width:min(100% - 2rem, var(--max));margin:0 auto}
+header{
+  border-bottom:1px solid var(--rule);
+  background:rgba(247,242,232,.96);
+  position:sticky;top:0;z-index:10;
+  backdrop-filter: blur(8px);
+}
+.topbar{padding:.9rem 0}
+.brand{
+  text-align:center;
+  font-size:clamp(1.8rem,4vw,3.2rem);
+  letter-spacing:.03em;
+  font-weight:700;
+  text-transform:uppercase;
+}
+.brand-sub{
+  text-align:center;
+  color:var(--muted);
+  font-size:.92rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-top:.25rem;
+}
+nav{
+  display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;
+  padding:.85rem 0 1rem;
+}
+nav a{
+  text-decoration:none;
+  padding:.45rem .8rem;
+  border-radius:999px;
+}
+nav a:hover{background:#ece4d6}
+.hero{padding:3.5rem 0 2rem}
+.kicker{
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:.8rem;
+  color:var(--muted);
+}
+h1{
+  font-size:clamp(2.2rem,5vw,4.6rem);
+  line-height:1.05;
+  margin:.35rem 0 1rem;
+}
+h2{
+  font-size:clamp(1.5rem,3vw,2.4rem);
+  line-height:1.15;
+  margin:0 0 .8rem;
+}
+.lead{font-size:1.14rem;color:#3f3a35;max-width:70ch}
+.grid{display:grid;gap:1.25rem}
+.grid-2{grid-template-columns:1.15fr .85fr}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.card{
+  background:var(--paper);
+  border:1px solid var(--rule);
+  padding:1.4rem;
+}
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  border:1px solid #222;
+  padding:.85rem 1.15rem;
+  margin-right:.6rem;
+  margin-top:.5rem;
+}
+.btn:hover{background:#111;color:#fff}
+.section{padding:1rem 0 3rem}
+.small{color:var(--muted);font-size:.96rem}
+footer{
+  border-top:1px solid var(--rule);
+  padding:1.5rem 0 2.5rem;
+  color:var(--muted);
+  font-size:.95rem;
+}
+.listing{padding:1rem 0;border-top:1px solid var(--rule)}
+.listing:first-child{border-top:none;padding-top:0}
+label{display:block;font-weight:700;margin-bottom:.8rem}
+input,textarea,select{
+  width:100%;padding:.9rem 1rem;border:1px solid #bfb4a2;background:white;
+  font:inherit;margin-top:.35rem
+}
+textarea{min-height:130px;resize:vertical}
+button{
+  border:1px solid #111;background:#111;color:#fff;padding:.9rem 1.15rem;
+  font:inherit;font-weight:700;cursor:pointer
+}
+blockquote{
+  margin:0;padding:1rem 1.2rem;border-left:4px solid #222;background:#faf6ee;
+  font-style:italic
+}
+@media (max-width:900px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container topbar">
+    <div class="brand">David C. O'Reilly</div>
+    <div class="brand-sub">Beginner's Writing Workshop</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="work.html">Published Work</a>
+      <a href="workshop.html">Workshop</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">For new and hesitant writers</div>
+      <h1>How and why to begin writing your own stories.</h1>
+      <p class="lead">This workshop is meant for inexperienced writers, journal keepers, memoir beginners, and anyone who has felt the urge to write but did not know how to begin. It emphasizes personal stories, reflective journal writing, and practical ways to turn everyday life into meaningful pages.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2">
+      <article class="card">
+        <h2>Workshop focus</h2>
+        <ul>
+          <li>Why ordinary lives contain extraordinary material</li>
+          <li>How journaling helps uncover memory, voice, and detail</li>
+          <li>Simple ways to begin without fear of being “a real writer”</li>
+          <li>Turning life moments into short personal narratives</li>
+          <li>Writing for family, community, publication, or personal meaning</li>
+        </ul>
+        <h2 style="margin-top:1.4rem;">Details</h2>
+        <p><strong>Format:</strong> Beginner-friendly workshop talk and discussion</p>
+        <p><strong>Audience:</strong> Adults, retirees, local writers, journal writers, and first-time storytellers</p>
+        <p><strong>Registration:</strong> Pre-register below to receive event details privately</p>
+        <p class="small">Publicly verifiable event-specific details were not available, so this page is set up to collect interest without inventing a venue, date, or fee.</p>
+      </article>
+
+      <article class="card" id="register">
+        <h2>Pre-Register</h2>
+        <p class="small">Replace the form action below with your private Formspree, Basin, or Netlify Forms endpoint.</p>
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <label>Full Name
+            <input type="text" name="name" required>
+          </label>
+          <label>Email Address
+            <input type="email" name="email" required>
+          </label>
+          <label>Phone Number
+            <input type="tel" name="phone">
+          </label>
+          <label>What most interests you?
+            <select name="interest">
+              <option value="">Please choose</option>
+              <option>Personal storytelling</option>
+              <option>Journal writing</option>
+              <option>Memoir / family history</option>
+              <option>Getting started as a writer</option>
+            </select>
+          </label>
+          <label>Comments or questions
+            <textarea name="message"></textarea>
+          </label>
+          <input type="hidden" name="subject" value="New workshop preregistration for David C. O'Reilly">
+          <button type="submit">Submit Pre-Registration</button>
+        </form>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© 2026 David C. O'Reilly.</div>
+</footer>
+</body>
+</html>
