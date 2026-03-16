@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Writers Workshop | David C. O'Reilly</title>
+  <meta name="description" content="A Writers Workshop by David C. O'Reilly — a welcoming one-page site for beginner writers, journal writers, and storytellers." />
+  <style>
+    :root{
+      --bg:#f6f1e7;
+      --paper:#ffffff;
+      --ink:#141414;
+      --muted:#5a544c;
+      --rule:#d9cfbf;
+      --accent:#111111;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height:1.72;
+    }
+    a{color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(100% - 2rem, var(--max));margin:0 auto}
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--rule);
+    }
+    .masthead{
+      padding:1rem 0 .6rem;
+      text-align:center;
+      border-bottom:1px solid var(--rule);
+    }
+    .masthead .mini{
+      font-size:.8rem;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:.25rem;
+    }
+    .masthead .title{
+      font-size:clamp(2rem,5vw,4rem);
+      line-height:1;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      font-weight:700;
+    }
+    .masthead .sub{
+      margin-top:.35rem;
+      color:var(--muted);
+      font-size:.95rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    nav{
+      display:flex;
+      justify-content:center;
+      gap:.35rem;
+      flex-wrap:wrap;
+      padding:.8rem 0;
+    }
+    nav a{
+      text-decoration:none;
+      padding:.5rem .85rem;
+      border-radius:999px;
+      font-size:.95rem;
+    }
+    nav a:hover{background:#ece4d5}
+    .hero{
+      padding:3.5rem 0 2rem;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:1.4rem;
+      align-items:start;
+    }
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-size:.78rem;
+      color:var(--muted);
+    }
+    h1{
+      font-size:clamp(2.4rem,5vw,5rem);
+      line-height:1.02;
+      margin:.45rem 0 1rem;
+      max-width:12ch;
+    }
+    h2{
+      font-size:clamp(1.5rem,3vw,2.35rem);
+      line-height:1.14;
+      margin:0 0 .85rem;
+    }
+    h3{
+      font-size:1.18rem;
+      margin:0 0 .55rem;
+    }
+    .lead{
+      font-size:1.12rem;
+      color:#3d3731;
+      max-width:68ch;
+    }
+    .buttons{
+      display:flex;
+      gap:.7rem;
+      flex-wrap:wrap;
+      margin-top:1.35rem;
+    }
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:.9rem 1.15rem;
+      border:1px solid #181818;
+      background:transparent;
+      font-weight:700;
+    }
+    .btn:hover{
+      background:#111;
+      color:#fff;
+    }
+    .card{
+      background:var(--paper);
+      border:1px solid var(--rule);
+      padding:1.35rem;
+      box-shadow:0 1px 0 rgba(0,0,0,.03);
+    }
+    .quote{
+      font-style:italic;
+      font-size:1.08rem;
+      border-left:4px solid #222;
+      padding-left:1rem;
+      margin:0;
+    }
+    .section{
+      padding:1rem 0 3rem;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1.15rem;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1.15rem;
+    }
+    .small{color:var(--muted);font-size:.96rem}
+    .listing{
+      padding:1rem 0;
+      border-top:1px solid var(--rule);
+    }
+    .listing:first-child{
+      border-top:none;
+      padding-top:0;
+    }
+    ul{padding-left:1.2rem}
+    form{display:grid;gap:.95rem}
+    label{display:block;font-weight:700}
+    input,textarea,select{
+      width:100%;
+      margin-top:.35rem;
+      padding:.9rem 1rem;
+      border:1px solid #c2b5a1;
+      background:white;
+      font:inherit;
+      border-radius:0;
+    }
+    textarea{min-height:130px;resize:vertical}
+    button{
+      border:1px solid #111;
+      background:#111;
+      color:#fff;
+      padding:.95rem 1.15rem;
+      font:inherit;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .band{
+      border-top:1px solid var(--rule);
+      border-bottom:1px solid var(--rule);
+      padding:1rem 0;
+      margin:1rem 0 0;
+      text-align:center;
+      font-style:italic;
+      color:#433d36;
+    }
+    footer{
+      border-top:1px solid var(--rule);
+      padding:1.4rem 0 2.5rem;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+    @media (max-width:900px){
+      .hero-grid,.grid-3,.grid-2{grid-template-columns:1fr}
+      h1{max-width:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="masthead">
+        <div class="mini">David C. O'Reilly Presents</div>
+        <div class="title">A Writers Workshop</div>
+        <div class="sub">For beginners, journal writers, and everyday storytellers</div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#why">Why Write</a>
+        <a href="#work">Published Work</a>
+        <a href="#workshop">Workshop</a>
+        <a href="#register">Pre-Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="kicker">One page. One invitation. One place to begin.</div>
+          <h1>Your stories are worth writing down.</h1>
+          <p class="lead">A Writers Workshop is a welcoming introduction to storytelling for people who have little or no writing experience. Led by accomplished author David C. O'Reilly, this workshop encourages participants to begin writing their own stories, memories, and journals with confidence, clarity, and purpose.</p>
+          <div class="buttons">
+            <a class="btn" href="#register">Pre-Register</a>
+            <a class="btn" href="#work">See David's Published Work</a>
+          </div>
+        </div>
+        <aside class="card">
+          <p class="quote">“You do not need to be a professional writer to begin. You need a memory, a moment, and the willingness to put words on a page.”</p>
+          <p class="small" style="margin-top:1rem;">Designed in a quiet, classic editorial style inspired by literary magazines, with the focus placed where it belongs: on words, reflection, and story.</p>
+        </aside>
+      </div>
+    </section>
+
+    <div class="band">
+      A beginner-friendly workshop in personal storytelling, journal writing, memoir, and the art of getting started.
+    </div>
+
+    <section class="section" id="about">
+      <div class="container grid-2">
+        <article class="card">
+          <h2>About A Writers Workshop</h2>
+          <p>A Writers Workshop is built for people who have long felt the urge to write but may not think of themselves as “writers.” Some want to preserve family stories. Some want to keep a journal with more purpose. Some simply want to understand how ordinary life can become meaningful writing.</p>
+          <p>David C. O'Reilly's approach is encouraging rather than intimidating. The workshop helps participants discover that they do not need a degree, a publishing contract, or years of experience to begin. They only need attention, honesty, and a place to start.</p>
+        </article>
+        <article class="card" id="why">
+          <h2>Why write at all?</h2>
+          <ul>
+            <li>To preserve family memories before they fade</li>
+            <li>To make sense of personal experience through journals</li>
+            <li>To leave something meaningful for children and grandchildren</li>
+            <li>To notice daily life more deeply and thoughtfully</li>
+            <li>To discover a voice you may not realize you already have</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container card">
+        <h2>Selected Published Work</h2>
+        <p class="small">A small selection of real public links associated with David C. O'Reilly.</p>
+
+        <div class="listing">
+          <h3><a href="https://www.davidcoreilly.com/" target="_blank" rel="noopener">Official Author Website</a></h3>
+          <p>A central source for David's books, writing, and author background.</p>
+        </div>
+
+        <div class="listing">
+          <h3><a href="https://mountainhomemag.com/2023/11/30/a-cowboys-headstone/" target="_blank" rel="noopener">A Cowboy’s Headstone</a></h3>
+          <p><em>Mountain Home</em> — a reflective regional piece with a strong sense of place.</p>
+        </div>
+
+        <div class="listing">
+          <h3><a href="https://www.inquirer.com/philly/opinion/commentary/20170127_The_heartbreaking_humanitarian_costs_of_iPhone_addiction.html" target="_blank" rel="noopener">The heartbreaking humanitarian costs of iPhone addiction</a></h3>
+          <p><em>The Philadelphia Inquirer</em></p>
+        </div>
+
+        <div class="listing">
+          <h3><a href="https://www.inquirer.com/philly/opinion/commentary/20170616_America_s_secret_shame__the_teenage_foster_child.html" target="_blank" rel="noopener">America’s secret shame: the teenage foster child</a></h3>
+          <p><em>The Philadelphia Inquirer</em></p>
+        </div>
+
+        <div class="listing">
+          <h3><a href="https://www.inquirer.com/philly/opinion/commentary/20170324_Let_s_save_the_children_in_solitary_confinement.html" target="_blank" rel="noopener">Let’s save the children in solitary confinement</a></h3>
+          <p><em>The Philadelphia Inquirer</em></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="workshop">
+      <div class="container grid-3">
+        <article class="card">
+          <h2>Workshop Focus</h2>
+          <ul>
+            <li>How to begin when you feel inexperienced</li>
+            <li>How journal writing unlocks voice and memory</li>
+            <li>How small moments become meaningful stories</li>
+            <li>How to write for family, community, or yourself</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Ideal Participants</h2>
+          <ul>
+            <li>First-time writers</li>
+            <li>Adults and retirees</li>
+            <li>Memoir and family-history writers</li>
+            <li>Journal keepers</li>
+            <li>Readers ready to try writing</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Format</h2>
+          <p>Beginner-friendly workshop talk and discussion.</p>
+          <p><strong>Registration:</strong> Submit the form below to receive event details privately.</p>
+          <p class="small">Specific public event details were not added here so nothing is guessed or misrepresented.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="register">
+      <div class="container grid-2">
+        <article class="card">
+          <h2>Pre-Register Privately</h2>
+          <p>Visitors can express interest without David's email address appearing on the public website.</p>
+          <p class="small">Replace the form action with your private Formspree, Basin, or Netlify Forms endpoint.</p>
+        </article>
+        <article class="card">
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <label>Full Name
+              <input type="text" name="name" required>
+            </label>
+            <label>Email Address
+              <input type="email" name="email" required>
+            </label>
+            <label>Phone Number
+              <input type="tel" name="phone">
+            </label>
+            <label>What interests you most?
+              <select name="interest">
+                <option value="">Please choose</option>
+                <option>Personal storytelling</option>
+                <option>Journal writing</option>
+                <option>Memoir / family history</option>
+                <option>Getting started as a writer</option>
+              </select>
+            </label>
+            <label>Comments or questions
+              <textarea name="message"></textarea>
+            </label>
+            <input type="hidden" name="subject" value="New A Writers Workshop preregistration">
+            <button type="submit">Submit Pre-Registration</button>
+          </form>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 David C. O'Reilly • A Writers Workshop • One-page responsive website for desktop and mobile.</div>
+  </footer>
+</body>
+</html>
