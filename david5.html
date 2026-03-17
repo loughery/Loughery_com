@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing Workshop with David C. O'Reilly | Deane Center</title>
+  <meta name="description" content="Free journaling and short story writing workshop with David C. O'Reilly at the Deane Center in Wellsboro, PA." />
+  <style>
+    :root{
+      --ink:#111111;
+      --soft-ink:#2d2d2d;
+      --paper:#f7f3eb;
+      --paper-deep:#efe7d8;
+      --line:#d9d0c2;
+      --accent:#0067b8;
+      --accent-dark:#004e8c;
+      --form-bg:#ffffff;
+      --muted:#666666;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:18px;
+      --max:1180px;
+    }
+
+/* NEW */
+
+:root {
+  --header-offset: 140px;
+}
+
+section {
+  scroll-margin-top: var(--header-offset);
+}
+
+    @media (max-width: 640px){
+  :root {
+    --header-offset: 110px;
+  }
+}
+
+/* END NEW */    
+
+
+
+
+
+    
+    *{ box-sizing:border-box; }
+
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height:1.65;
+      -webkit-text-size-adjust:100%;
+      text-size-adjust:100%;
+    }
+
+    img{ max-width:100%; display:block; }
+    a{ color:inherit; text-decoration:none; }
+
+    .wrap{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .top-rule{
+      height:8px;
+      background:
+        linear-gradient(to right,
+          #000 0%, #000 12%,
+          transparent 12%, transparent 14%,
+          #000 14%, #000 86%,
+          transparent 86%, transparent 88%,
+          #000 88%, #000 100%);
+    }
+
+    header{
+      border-bottom:1px solid var(--line);
+      background:rgba(247,243,235,.96);
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(8px);
+    }
+
+    .masthead{
+      padding:18px 0 14px;
+      text-align:center;
+    }
+
+    .mini-kicker{
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.75rem;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    .site-title{
+      font-size:clamp(2rem, 5vw, 4.2rem);
+      font-weight:700;
+      letter-spacing:-0.03em;
+      line-height:1;
+      margin:0;
+    }
+
+    .site-sub{
+      margin:8px auto 0;
+      font-size:1rem;
+      color:var(--soft-ink);
+      max-width:720px;
+    }
+
+    nav{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:#fbf8f2;
+    }
+
+    .nav-inner{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px 26px;
+      padding:12px 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:.95rem;
+    }
+
+    .nav-inner a{
+      color:#222;
+      padding:4px 0;
+      position:relative;
+    }
+
+    .nav-inner a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-2px;
+      width:0;
+      height:1px;
+      background:#111;
+      transition:width .2s ease;
+    }
+
+    .nav-inner a:hover::after{ width:100%; }
+
+    .hero{ padding:44px 0 28px; }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:34px;
+      align-items:start;
+    }
+
+    .eyebrow{
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.78rem;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .headline{
+      font-size:clamp(2.2rem, 5.8vw, 5.2rem);
+      line-height:.98;
+      letter-spacing:-0.045em;
+      margin:0 0 18px;
+      font-weight:700;
+    }
+
+    .dek{
+      font-size:clamp(1.1rem, 1.8vw, 1.4rem);
+      color:var(--soft-ink);
+      max-width:760px;
+      margin:0 0 24px;
+    }
+
+    .byline{
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--muted);
+      font-size:.95rem;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:12px 0;
+      margin:0 0 28px;
+    }
+
+    .summary{
+      font-size:1.1rem;
+      max-width:760px;
+    }
+
+    .summary p:first-child::first-letter{
+      float:left;
+      font-size:4.2rem;
+      line-height:.82;
+      padding-right:10px;
+      padding-top:8px;
+      font-weight:700;
+    }
+
+    .info-card{
+      background:linear-gradient(180deg, #f4ede1 0%, #efe5d5 100%);
+      border:1px solid #d7c9b2;
+      border-radius:22px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      position:sticky;
+      top:156px;
+    }
+
+    .info-card h2{ margin:0 0 14px; font-size:1.35rem; line-height:1.2; }
+
+    .info-list{ display:grid; gap:14px; margin:20px 0 0; }
+
+    .info-item{
+      border-top:1px solid rgba(0,0,0,.12);
+      padding-top:14px;
+    }
+
+    .info-label{
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform:uppercase;
+      font-size:.72rem;
+      letter-spacing:.14em;
+      color:var(--muted);
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .info-value{
+      font-size:1.08rem;
+      line-height:1.4;
+    }
+
+    .cta-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:26px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 22px;
+      border-radius:999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:.98rem;
+      font-weight:600;
+      transition:transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      cursor:pointer;
+      border:1px solid #111;
+      background:#111;
+      color:#fff;
+    }
+
+    .btn:hover{ transform:translateY(-1px); }
+    .btn.secondary{ background:transparent; color:#111; }
+
+    .section{ padding:28px 0 8px; }
+
+    .feature-band{
+      margin:28px 0 12px;
+      padding:30px 0;
+      border-top:2px solid #111;
+      border-bottom:2px solid #111;
+      background:linear-gradient(to bottom, rgba(255,255,255,.55), rgba(255,255,255,0)), var(--paper);
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .feature{ padding:8px 6px; }
+    .feature h3{ margin:0 0 10px; font-size:1.28rem; line-height:1.2; }
+    .feature p{ margin:0; color:var(--soft-ink); }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      margin-top:18px;
+    }
+
+    .editorial-box{
+      background:rgba(255,255,255,.55);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:24px;
+    }
+
+    .editorial-box h3{ margin:0 0 12px; font-size:1.45rem; line-height:1.2; }
+    .editorial-box p:last-child{ margin-bottom:0; }
+
+    .quote-box{
+      margin:12px 0 0;
+      padding:28px;
+      border-left:5px solid #111;
+      background:#fdfbf6;
+      border-radius:0 18px 18px 0;
+      font-size:1.25rem;
+      line-height:1.55;
+    }
+
+    .quote-box strong{
+      display:block;
+      margin-top:14px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:.95rem;
+      color:var(--muted);
+      letter-spacing:.03em;
+    }
+
+    .register-section{ padding:54px 0 72px; }
+
+    .register-shell{
+      background:linear-gradient(180deg, #ffffff 0%, #fafcff 100%);
+      border:1px solid #d8e6f5;
+      border-radius:24px;
+      box-shadow:0 18px 40px rgba(0,56,112,.08);
+      overflow:hidden;
+    }
+
+    .register-header{
+      padding:28px 28px 18px;
+      border-bottom:1px solid #e7eef7;
+      background:linear-gradient(90deg, #f7fbff 0%, #ffffff 100%);
+    }
+
+    .register-kicker{
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform:uppercase;
+      font-size:.78rem;
+      letter-spacing:.16em;
+      color:#3a5f86;
+      margin-bottom:8px;
+    }
+
+    .register-header h2{
+      margin:0;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      font-size:clamp(1.8rem, 3vw, 2.5rem);
+      line-height:1.15;
+      color:#0f1720;
+    }
+
+    .register-header p{
+      margin:12px 0 0;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      color:#425466;
+      max-width:760px;
+    }
+
+    .form-wrap{
+      padding:26px 28px 30px;
+      background:var(--form-bg);
+    }
+
+    form{ display:grid; gap:18px; }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      min-width:0;
+    }
+
+    .field.full{ grid-column:1 / -1; }
+
+    label{
+      font-family:"Segoe UI", Arial, Helvetica, sans-serif;
+      font-size:.95rem;
+      color:#243241;
+      font-weight:600;
+    }
+
+    input, textarea, select{
+      width:100%;
+      max-width:100%;
+      border:1px solid #bfcfe0;
+      background:#fff;
+      border-radius:12px;
+      padding:14px 14px;
+      font:inherit;
+      font-family:"Segoe UI", Arial, Helvetica, sans-serif;
+      color:#0f1720;
+      outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease, transform .1s ease;
+      appearance:none;
+    }
+
+    input:focus, textarea:focus, select:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(0,103,184,.12);
+    }
+
+    textarea{
+      min-height:126px;
+      resize:vertical;
+    }
+
+    .hint{
+      font-family:"Segoe UI", Arial, Helvetica, sans-serif;
+      font-size:.88rem;
+      color:#617287;
+    }
+
+    .checks{
+      display:grid;
+      gap:12px;
+      padding-top:6px;
+    }
+
+    .check{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      font-family:"Segoe UI", Arial, Helvetica, sans-serif;
+      color:#243241;
+    }
+
+    .check input{
+      width:18px;
+      height:18px;
+      margin-top:2px;
+      padding:0;
+      border-radius:4px;
+      flex:0 0 auto;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      align-items:center;
+      padding-top:4px;
+    }
+
+    .ms-btn{
+      min-height:50px;
+      padding:0 22px;
+      border-radius:10px;
+      border:1px solid var(--accent);
+      background:var(--accent);
+      color:white;
+      font-family:"Segoe UI", Arial, Helvetica, sans-serif;
+      font-size:1rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:background .2s ease, transform .15s ease, border-color .2s ease;
+    }
+
+    .ms-btn:hover{
+      background:var(--accent-dark);
+      border-color:var(--accent-dark);
+      transform:translateY(-1px);
+    }
+
+    .ms-btn.secondary{
+      background:#fff;
+      color:var(--accent);
+    }
+
+    .status{
+      display:none;
+      font-family:"Segoe UI", Arial, Helvetica, sans-serif;
+      border-radius:12px;
+      padding:12px 14px;
+      font-size:.95rem;
+    }
+
+    .status.show{ display:block; }
+    .status.error{ background:#fff1f0; color:#8a1c12; border:1px solid #f0beb8; }
+    .status.success{ background:#eef8f0; color:#1d5d2a; border:1px solid #bddcc1; }
+
+    .footnote{
+      font-family:"Segoe UI", Arial, Helvetica, sans-serif;
+      font-size:.88rem;
+      color:#68778a;
+    }
+
+    .confirmation{
+      display:none;
+      margin-top:22px;
+      border:1px solid #d8e6f5;
+      border-radius:18px;
+      background:#f9fcff;
+      padding:24px;
+      box-shadow:0 8px 25px rgba(0,56,112,.06);
+      font-family:"Segoe UI", Arial, Helvetica, sans-serif;
+      color:#0f1720;
+    }
+
+    .confirmation.show{ display:block; }
+
+    .confirmation h3{
+      margin:0 0 10px;
+      font-size:1.5rem;
+      line-height:1.2;
+    }
+
+    .confirmation p{
+      margin:10px 0;
+      color:#324556;
+    }
+
+    .confirm-card{
+      background:#fff;
+      border:1px solid #dfe8f2;
+      border-radius:14px;
+      padding:18px;
+      margin:16px 0;
+    }
+
+    .confirm-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:12px 18px;
+    }
+
+    .confirm-item small{
+      display:block;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#6a7d90;
+      font-size:.74rem;
+      margin-bottom:4px;
+    }
+
+    .print-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:14px;
+    }
+
+    footer{
+      padding:22px 0 42px;
+      border-top:1px solid var(--line);
+      text-align:center;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .tiny{ font-size:.87rem; }
+
+    @media (max-width: 980px){
+      .hero-grid, .two-col, .feature-grid, .form-grid, .confirm-grid{
+        grid-template-columns:1fr;
+      }
+      .info-card{ position:static; }
+      .headline{ max-width:16ch; }
+    }
+
+    @media (max-width: 640px){
+      .wrap{ width:min(var(--max), calc(100% - 20px)); }
+      .masthead{ padding:14px 0 12px; }
+      .nav-inner{ gap:8px 18px; font-size:.92rem; }
+      .hero{ padding:28px 0 14px; }
+      .section{ padding:18px 0 6px; }
+      .feature-band{ padding:22px 0; }
+      .info-card, .editorial-box, .register-header, .form-wrap, .confirmation{ padding:20px; }
+      .cta-row, .actions, .print-actions{ flex-direction:column; align-items:stretch; }
+      .btn, .ms-btn{ width:100%; }
+      .headline{ max-width:none; }
+    }
+
+    @media print{
+      body *{ visibility:hidden; }
+      #printConfirmation, #printConfirmation *{ visibility:visible; }
+      #printConfirmation{
+        display:block !important;
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        margin:0;
+        padding:24px;
+        background:#fff;
+        border:none;
+        box-shadow:none;
+      }
+      .print-actions{ display:none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-rule"></div>
+
+  <header>
+    <div class="wrap masthead">
+      <div class="mini-kicker">A Wellsboro Writing Event</div>
+      <h1 class="site-title">The Writing Workshop</h1>
+      <p class="site-sub">Journaling and short story writing with David C. O'Reilly<br>
+      <div class="tiny">2024 Writer of the Year: International Regional Magazine Association<br>
+        Feature writer for Mountain Home Magazine</div></p>
+    </div>
+
+    <nav>
+      <div class="wrap nav-inner">
+        <a href="#about">About</a>
+        <a href="#learn">What You'll Learn</a>
+        <a href="#details">Event Details</a>
+        <a href="#register">Register</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="about">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Free Community Workshop</div>
+          <h2 class="headline">How to Begin Writing—With Nothing More Than Paper, Pencil, and Attention.</h2>
+          <p class="dek">
+            A welcoming workshop for people who want to explore the art of journaling and short story writing,
+            led by David C. O'Reilly, accomplished author and feature writer for <em>Mountain Home</em> magazine.
+          </p>
+
+          <div class="byline">
+            Coming Summer 2026 • The Deane Center • Wellsboro, Pennsylvania
+          </div>
+
+          <div class="summary">
+            <p>
+              Every writer begins somewhere. This workshop is designed for people who want to start writing but are unsure where to begin. With paper and pencil instead of screens, participants will slow down, observe more carefully, and discover simple ways into journaling and short fiction.
+            </p>
+            <p>
+              Whether you have always wanted to write, have started and stopped many times, or simply want a thoughtful creative afternoon, this session offers an inviting place to begin.
+            </p>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn" href="#register">Register Now</a>
+            <a class="btn secondary" href="#details">See Event Details</a>
+          </div>
+        </div>
+
+<aside id="details" class="info-card" style="padding:0; overflow:hidden; display:flex; flex-direction:column;">
+  <img src="public/images/david1.png" alt="David C. O'Reilly"
+       style="width:100%; height:auto; display:block; object-fit:cover;">
+  
+  <div style="padding:16px 18px; background:#f4ede1; border-top:1px solid rgba(0,0,0,.08);">
+    <div style="font-family: Arial, Helvetica, sans-serif; font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:#666;">
+      Workshop Leader
+    </div>
+    <div style="font-size:1.1rem; font-weight:600; margin-top:4px;">
+      David C. O'Reilly
+    </div>
+  </div>
+</aside>
+
+      </div>
+    </section>
+
+    <section class="feature-band">
+      <div class="wrap feature-grid" id="learn">
+        <div class="feature">
+          <h3>Where to Begin</h3>
+          <p>Learn practical ways to start writing when the blank page feels overwhelming, and how to build momentum from simple observations and memories.</p>
+        </div>
+        <div class="feature">
+          <h3>Journaling as Practice</h3>
+          <p>Explore journaling as a daily or occasional habit that sharpens attention, deepens reflection, and becomes a foundation for richer writing.</p>
+        </div>
+        <div class="feature">
+          <h3>Short Stories from Real Life</h3>
+          <p>Discover how small moments, places, people, and fragments of experience can become the seed of a short story worth telling.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="two-col">
+        <div class="editorial-box">
+          <h3>About the Workshop</h3>
+          <p>
+            This workshop focuses on the earliest and most important stage of writing: beginning. Participants will work with the simplest tools—paper, pencil, memory, and attention—to find a starting place.
+          </p>
+          <p>
+            The emphasis is not on technology, productivity, or publishing platforms. Instead, the session returns to the quiet essentials of writing: noticing, remembering, drafting, and learning how to trust the first sentence.
+          </p>
+        </div>
+        <div class="editorial-box">
+          <h3>Who Should Attend</h3>
+          <p>
+            This event is ideal for beginners, journal keepers, aspiring storytellers, lifelong readers who have always wanted to write, and anyone curious about turning everyday experience into meaningful prose.
+          </p>
+          <p>
+            No special background is needed. Bring only your interest, your imagination, and a willingness to put pencil to paper.
+          </p>
+        </div>
+      </div>
+
+      <div class="quote-box">
+        “Writing does not begin with perfection. It begins with attention—with noticing what is before you, and daring to put it into words.”
+        <strong>Workshop Theme</strong>
+      </div>
+      <div class="quote-box">
+        “Many of us live our lives between the existence of our Grandparents and our Grandchildren. What a gift it is to tell our Grandchildren stories of their Great Great Grandparents.”
+        <strong>Sharing family legacies</strong>
+      </div>
+      <div class="quote-box">
+        “Writing in cursive takes practice. Computers allow us to write in any font we want. Grab some paper and a nice pen. What a joy it is to receive a hand-written letter from family or greeting card from a friend!”
+        <strong>Is letter writing a lost art?</strong>
+      </div>
+    </section>
+
+    <section class="register-section wrap" id="register">
+      <div class="register-shell">
+        <div class="register-header">
+          <div class="register-kicker">Registration</div>
+          <h2>Reserve A Seat</h2>
+          <p>
+            Your registration helps us determine how many tables and chairs to set up. Please complete the form below to register for this free workshop.
+          </p>
+        </div>
+
+        <div class="form-wrap">
+          <!--
+            SETUP:
+            1) Go to https://web3forms.com and create a free access key for the email address that should receive registrations.
+            2) Replace YOUR_WEB3FORMS_ACCESS_KEY below.
+            3) Upload this HTML file to your website host or GitHub Pages.
+          -->
+          <form id="registrationForm">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New registration: David C. O'Reilly writing workshop">
+            <input type="hidden" name="from_name" value="Deane Center Workshop Registration">
+            <input type="checkbox" name="botcheck" style="display:none">
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" name="First Name" placeholder="Enter your first name" required>
+              </div>
+
+              <div class="field">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" name="Last Name" placeholder="Enter your last name" required>
+              </div>
+
+              <div class="field">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="Email" placeholder="name@example.com" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="Phone" placeholder="(555) 555-5555">
+              </div>
+
+              <div class="field full">
+                <label for="experience">What interests you most about this workshop?</label>
+                <select id="experience" name="Primary Interest">
+                  <option value="">Select one</option>
+                  <option>Learning how to start writing</option>
+                  <option>Journaling</option>
+                  <option>Short story writing</option>
+                  <option>Creative inspiration</option>
+                  <option>All of the above</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="notes">Comments or questions</label>
+                <textarea id="notes" name="Comments or Questions" placeholder="Share anything you'd like the organizers to know"></textarea>
+                <div class="hint">Optional. You may include accessibility needs or general questions.</div>
+              </div>
+
+              <div class="field full">
+                <label>Workshop acknowledgments</label>
+                <div class="checks">
+                  <label class="check">
+                    <input type="checkbox" name="Acknowledgment: Free Workshop" value="Yes" required>
+                    <span>I understand the workshop is free to attend.</span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" name="Acknowledgment: Paper and Pencil" value="Yes" required>
+                    <span>I understand the workshop uses paper and pencil rather than computers and mobile devices.</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div id="formStatus" class="status" aria-live="polite"></div>
+
+            <div class="actions">
+              <button class="ms-btn" type="submit" id="submitBtn">Register for the Workshop</button>
+              <button class="ms-btn secondary" type="reset">Clear Form</button>
+              <div class="footnote">The Deane Center • 104 Main St, Wellsboro, PA 16901</div>
+            </div>
+          </form>
+
+          <section id="printConfirmation" class="confirmation" aria-live="polite">
+            <h3>Registration Confirmed</h3>
+            <p>Thank you for registering. A copy of your submission has been sent through the form handler, and this page can be printed as your confirmation.</p>
+
+            <div class="confirm-card">
+              <div class="confirm-grid">
+                <div class="confirm-item">
+                  <small>Participant</small>
+                  <div id="confirmName">—</div>
+                </div>
+                <div class="confirm-item">
+                  <small>Email</small>
+                  <div id="confirmEmail">—</div>
+                </div>
+                <div class="confirm-item">
+                  <small>Phone</small>
+                  <div id="confirmPhone">—</div>
+                </div>
+                <div class="confirm-item">
+                  <small>Primary Interest</small>
+                  <div id="confirmInterest">—</div>
+                </div>
+                <div class="confirm-item">
+                  <small>Date</small>
+                  <div>July 10, 2026</div>
+                </div>
+                <div class="confirm-item">
+                  <small>Time</small>
+                  <div>1:00 PM</div>
+                </div>
+                <div class="confirm-item">
+                  <small>Location</small>
+                  <div>The Deane Center, Wellsboro, PA</div>
+                </div>
+                <div class="confirm-item">
+                  <small>Cost</small>
+                  <div>Free</div>
+                </div>
+              </div>
+            </div>
+
+            <p id="confirmNotesWrap" style="display:none;">
+              <strong>Comments or Questions:</strong> <span id="confirmNotes"></span>
+            </p>
+
+            <div class="print-actions">
+              <button type="button" class="ms-btn" onclick="window.print()">Print Confirmation</button>
+              <button type="button" class="ms-btn secondary" id="registerAnotherBtn">Register Another Person</button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>Writing Workshop with award winning author David C. O'Reilly • Feature writer for Mountain Home Magazine</div>
+      <div class="tiny">Deane Center, 104 Main St, Wellsboro, PA 16901</div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+    const statusBox = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+    const confirmation = document.getElementById('printConfirmation');
+    const registerAnotherBtn = document.getElementById('registerAnotherBtn');
+
+    function showStatus(message, type){
+      statusBox.textContent = message;
+      statusBox.className = 'status show ' + type;
+    }
+
+    function clearStatus(){
+      statusBox.textContent = '';
+      statusBox.className = 'status';
+    }
+
+    function fillConfirmation(formData){
+      const first = (formData.get('First Name') || '').trim();
+      const last = (formData.get('Last Name') || '').trim();
+      const fullName = [first, last].filter(Boolean).join(' ');
+      document.getElementById('confirmName').textContent = fullName || '—';
+      document.getElementById('confirmEmail').textContent = formData.get('Email') || '—';
+      document.getElementById('confirmPhone').textContent = formData.get('Phone') || '—';
+      document.getElementById('confirmInterest').textContent = formData.get('Primary Interest') || '—';
+
+      const notes = (formData.get('Comments or Questions') || '').trim();
+      const notesWrap = document.getElementById('confirmNotesWrap');
+      const notesTarget = document.getElementById('confirmNotes');
+      if(notes){
+        notesTarget.textContent = notes;
+        notesWrap.style.display = 'block';
+      } else {
+        notesTarget.textContent = '';
+        notesWrap.style.display = 'none';
+      }
+    }
+
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      clearStatus();
+
+      const formData = new FormData(form);
+      const accessKey = (formData.get('access_key') || '').trim();
+
+      if(!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY'){
+        showStatus('Before this form can send email, replace YOUR_WEB3FORMS_ACCESS_KEY in the HTML with your real Web3Forms access key.', 'error');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try{
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if(response.ok && result.success){
+          fillConfirmation(formData);
+          form.style.display = 'none';
+          confirmation.classList.add('show');
+          confirmation.scrollIntoView({behavior:'smooth', block:'start'});
+          showStatus('Registration submitted successfully.', 'success');
+        } else {
+          throw new Error(result.message || 'Unable to submit the form right now.');
+        }
+      } catch(error){
+        showStatus(error.message || 'There was a problem submitting the form. Please try again.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Register for the Workshop';
+      }
+    });
+
+    registerAnotherBtn.addEventListener('click', function(){
+      confirmation.classList.remove('show');
+      form.reset();
+      form.style.display = 'grid';
+      clearStatus();
+      form.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  </script>
+</body>
+</html>
