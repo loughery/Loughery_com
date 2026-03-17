@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing Workshop | David C. O'Reilly</title>
+
+<style>
+:root{
+--header-offset:140px;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+margin:0;
+font-family:Georgia,serif;
+background:#f4efe6;
+background-image:radial-gradient(rgba(0,0,0,.03) 1px, transparent 1px);
+background-size:4px 4px;
+color:#111;
+}
+
+/* HEADER */
+header{
+position:sticky;
+top:0;
+background:#f4efe6;
+z-index:1000;
+border-bottom:1px solid #ccc;
+text-align:center;
+padding:15px;
+}
+
+nav{
+display:flex;
+justify-content:center;
+gap:20px;
+padding:10px;
+border-top:1px solid #ccc;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#111;
+position:relative;
+}
+
+nav a.active{
+font-weight:bold;
+}
+
+nav a.active::after{
+content:"";
+position:absolute;
+bottom:-3px;
+left:0;
+width:100%;
+height:1px;
+background:#111;
+}
+
+/* HERO */
+.hero{
+padding:100px 20px;
+text-align:center;
+max-width:900px;
+margin:auto;
+}
+
+.hero h1{
+font-size:42px;
+line-height:1.1;
+}
+
+.typewriter{
+border-right:3px solid #111;
+white-space:nowrap;
+overflow:hidden;
+animation:typing 4s steps(40,end), blink .8s infinite;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+
+/* SECTIONS */
+section{
+padding:80px 20px;
+max-width:900px;
+margin:auto;
+scroll-margin-top:var(--header-offset);
+}
+
+/* reveal */
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:.8s;
+}
+.reveal.visible{
+opacity:1;
+transform:none;
+}
+
+/* FORM */
+form{
+display:grid;
+gap:12px;
+}
+
+input,textarea{
+padding:14px;
+border-radius:8px;
+border:1px solid #ccc;
+width:100%;
+}
+
+button{
+padding:14px;
+border:none;
+background:#0067b8;
+color:white;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* STICKY REGISTER BUTTON */
+.sticky-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#111;
+color:white;
+padding:14px 18px;
+border-radius:50px;
+z-index:999;
+font-size:14px;
+}
+
+/* CONFIRMATION */
+.confirmation{
+display:none;
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:10px;
+}
+
+.confirmation.show{display:block;}
+
+@media(max-width:640px){
+:root{--header-offset:110px;}
+.hero h1{font-size:28px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Writing Workshop</h2>
+<nav>
+<a href="#about">About</a>
+<a href="#learn">Learn</a>
+<a href="#details">Details</a>
+<a href="#register">Register</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1 class="typewriter">Start Writing with Paper and Pencil</h1>
+<p>Led by David C. O'Reilly at the Deane Center, Wellsboro PA</p>
+</div>
+
+<section id="about" class="reveal">
+<h2>About</h2>
+<p>A free workshop focused on journaling and short story writing.</p>
+</section>
+
+<section id="learn" class="reveal">
+<h2>What You'll Learn</h2>
+<p>How to begin writing and develop ideas into stories.</p>
+</section>
+
+<section id="details" class="reveal">
+<h2>Details</h2>
+<p>July 10, 2026 • 1:00 PM • Deane Center • Wellsboro, PA</p>
+</section>
+
+<section id="register" class="reveal">
+<h2>Register</h2>
+
+<form id="form">
+<input name="name" placeholder="Name" required>
+<input name="email" placeholder="Email" required>
+<textarea name="notes" placeholder="Notes"></textarea>
+<button type="submit">Register</button>
+</form>
+
+<div id="confirmation" class="confirmation">
+<h3>Confirmed</h3>
+<p id="confText"></p>
+<button onclick="window.print()">Print</button>
+</div>
+
+</section>
+
+<a href="#register" class="sticky-btn">Register</a>
+
+<script>
+// reveal
+const reveals=document.querySelectorAll('.reveal');
+new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add('visible');}
+});
+},{threshold:.2}).observe(document.body);
+reveals.forEach(el=>{
+new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add('visible');}
+});
+}).observe(el);
+});
+
+// nav highlight
+const sections=document.querySelectorAll('section');
+const links=document.querySelectorAll('nav a');
+
+new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+links.forEach(l=>l.classList.remove('active'));
+let active=document.querySelector('nav a[href="#'+e.target.id+'"]');
+if(active) active.classList.add('active');
+}
+});
+},{threshold:.6}).observe(document.body);
+
+sections.forEach(s=>{
+new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+links.forEach(l=>l.classList.remove('active'));
+let active=document.querySelector('nav a[href="#'+e.target.id+'"]');
+if(active) active.classList.add('active');
+}
+});
+}).observe(s);
+});
+
+// form
+document.getElementById('form').addEventListener('submit',e=>{
+e.preventDefault();
+let name=e.target.name.value;
+document.getElementById('confText').innerText="Thank you "+name+", you're registered.";
+document.getElementById('confirmation').classList.add('show');
+e.target.style.display="none";
+});
+</script>
+
+</body>
+</html>
