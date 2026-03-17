@@ -21,6 +21,29 @@
       --max:1180px;
     }
 
+/* NEW */
+
+:root {
+  --header-offset: 140px;
+}
+
+section {
+  scroll-margin-top: var(--header-offset);
+}
+
+    @media (max-width: 640px){
+  :root {
+    --header-offset: 110px;
+  }
+}
+
+/* END NEW */    
+
+
+
+
+
+    
     *{ box-sizing:border-box; }
 
     html{ scroll-behavior:smooth; }
