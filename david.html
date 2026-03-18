@@ -933,7 +933,7 @@ section {
       const formData = new FormData(form);
       const accessKey = (formData.get('access_key') || '').trim();
 
-      if(!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY'){
+      if(!accessKey || accessKey === 'f7f9f99c-45aa-44f5-8057-9d058ffd057f'){
         showStatus('Before this form can send email, replace YOUR_WEB3FORMS_ACCESS_KEY in the HTML with your real Web3Forms access key.', 'error');
         return;
       }
