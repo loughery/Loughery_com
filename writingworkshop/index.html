@@ -762,6 +762,11 @@ section {
             <input type="hidden" name="subject" value="New registration: David C. O'Reilly's writing workshop">
             <input type="hidden" name="from_name" value="Deane Center Workshop Registration">
             <input type="checkbox" name="botcheck" style="display:none">
+            <input type="hidden" name="replyto" value="">
+            <input type="hidden" name="from_name" value="Writing Workshop Registration">
+            <input type="hidden" name="subject" value="Workshop Registration Confirmation">
+            <input type="hidden" name="redirect" value="">
+            <input type="email" name="Email">
 
             <div class="form-grid">
               <div class="field">
@@ -1116,6 +1121,7 @@ section {
       clearStatus();
 
       const formData = new FormData(form);
+        formData.set("replyto", formData.get("Email"));
       const accessKey = (formData.get('access_key') || '').trim();
 
       if(!accessKey || accessKey.includes('YOUR_')){ /* === 'f7f9f99c-45aa-44f5-8057-9d058ffd057f'){ */
