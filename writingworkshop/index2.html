@@ -590,7 +590,7 @@ section {
       .headline{ max-width:none; }
     }
 
-    @media print{
+/*    @media print{
       body *{ visibility:hidden; }
       #printConfirmation, #printConfirmation *{ visibility:visible; }
       #printConfirmation{
@@ -605,7 +605,29 @@ section {
         border:none;
         box-shadow:none;
       }
-      .print-actions{ display:none !important; }
+      .print-actions{ display:none !important; } */
+@media print {
+
+  body * {
+    visibility: hidden;
+  }
+
+  #printConfirmation,
+  #printConfirmation * {
+    visibility: visible;
+  }
+
+  #printConfirmation {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white;
+    padding: 20px;
+  }
+
+}
+    
     }
   </style>
 </head>
@@ -816,7 +838,30 @@ section {
 <!--              <div class="footnote">The Deane Center • 104 Main St, Wellsboro, PA 16901</div>  -->
             </div>
           </form>
+<!-- END FORM -->
 
+          <!-- 👇 PUT CONFIRMATION HERE -->
+  <div id="printConfirmation" class="confirmation">
+
+    <h2>Registration Confirmed</h2>
+
+    <p><strong>Name:</strong> <span id="confirmName"></span></p>
+    <p><strong>Email:</strong> <span id="confirmEmail"></span></p>
+    <p><strong>Phone:</strong> <span id="confirmPhone"></span></p>
+    <p><strong>Interest:</strong> <span id="confirmInterest"></span></p>
+
+    <div id="confirmNotesWrap" style="display:none;">
+      <p><strong>Notes:</strong> <span id="confirmNotes"></span></p>
+    </div>
+
+    <button onclick="window.print()" class="ms-btn">
+      Print Confirmation
+    </button>
+
+  </div>
+
+</div> <!--END CONFIRMATION -->
+          
           <section id="printConfirmation" class="confirmation" aria-live="polite">
             <h3>Registration Confirmed</h3>
             <p>Thank you for registering. A copy of your submission has been sent through the form handler, and this page can be printed as your confirmation.</p>
