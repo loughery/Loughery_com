@@ -606,29 +606,28 @@ section {
         box-shadow:none;
       }
       .print-actions{ display:none !important; } */
-@media print {
 
-  body * {
-    visibility: hidden;
+    @media print {
+
+  body {
+    margin: 0;
   }
 
-  #printConfirmation,
-  #printConfirmation * {
-    visibility: visible;
+  body * {
+    display: none !important;
   }
 
   #printConfirmation {
+    display: block !important;
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
-    background: white;
     padding: 20px;
+    background: white;
   }
-
-}
-    
-    }
+  } 
+  }
   </style>
 </head>
 <body>
