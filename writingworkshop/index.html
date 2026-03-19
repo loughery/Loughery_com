@@ -751,16 +751,10 @@ section {
         </div>
 
         <div class="form-wrap">
-          <!--
-            SETUP:
-            1) Go to https://web3forms.com and create a free access key for the email address that should receive registrations.
-            2) Replace YOUR_WEB3FORMS_ACCESS_KEY below.
-            3) Upload this HTML file to your website host or GitHub Pages.
-          -->
           <form id="registrationForm" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="f7f9f99c-45aa-44f5-8057-9d058ffd057f">
-            <input type="hidden" name="subject" value="New registration: David C. O'Reilly's writing workshop">
-            <input type="hidden" name="from_name" value="Deane Center Workshop Registration">
+            <input type="hidden" name="subject" value="New registration for David C. O'Reilly's writing workshop">
+            <input type="hidden" name="from_name" value="Writing Workshop Registration">
             <input type="checkbox" name="botcheck" style="display:none">
             <input type="hidden" name="replyto" value="">
             <input type="hidden" name="from_name" value="Writing Workshop Registration">
@@ -795,6 +789,7 @@ section {
                   <option value="">Select one</option>
                   <option>Learning how to start writing</option>
                   <option>Journaling</option>
+                  <option>Writing to my family</option>                  
                   <option>Short story writing</option>
                   <option>Creative inspiration</option>
                   <option>All of the above</option>
