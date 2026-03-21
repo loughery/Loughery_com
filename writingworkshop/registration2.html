@@ -177,8 +177,20 @@ button:hover{
 }
 
 .print-btn{
-  margin-top:15px;
-  background:var(--accent);
+  height:44px;
+}
+
+/* ===== FIX RECEIPT BUTTON HEIGHT ===== */
+.receipt-buttons button,
+.receipt-buttons .home-btn{
+  flex:1;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+  padding:0 20px; /* override uneven padding */
+  line-height:1;
 }
 
 @media print {
