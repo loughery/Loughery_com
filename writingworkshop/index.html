@@ -842,10 +842,11 @@ window.addEventListener("scroll", function(){
 
 // smooth scroll to top
 topBtn.addEventListener("click", function(){
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+  topBtn.style.opacity = "0.6"; // subtle feedback
+  setTimeout(function(){
+    window.location.href = "/index.html";
+  }, 100);
+});
 });
 </script>
 </body>
