@@ -596,6 +596,24 @@ section {
   transform:translateY(0);
 }
 
+    #topBtn{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  z-index:999;
+  background:var(--ink);
+  color:white;
+  border:none;
+  padding:10px 14px;
+  cursor:pointer;
+
+  display:none;
+}
+
+#topBtn.show{
+  display:block;
+}
+    
 /*    .footer{
       padding:22px 0 42px;
       border-top:1px solid var(--line);
@@ -773,7 +791,7 @@ footer .wrap{
       </div>
       <div class="feature">
         <h3>Short Stories from Real Life</h3>
-        <p>Discover how small moments, places, people, and fragments of experience can become the seed of a short story worth telling. Write a short story of the last time you had winter weather just this past winter. Describe the first plants that grow in your yard and when they first appear.</p>
+        <p>Discover how small moments, places, people, and fragments of experience can become the seed of a short story worth telling. Write a short story of the last time you had winter weather just like this past winter. Describe the first plants that grow in your yard and when they first appear.</p>
       </div>
       <div class="feature">
         <h3>Share a Childhood story</h3>
@@ -828,7 +846,7 @@ footer .wrap{
 
 <button id="topBtn" title="Back to top">↑ Top</button>
 
-<script>
+<!--<script>
 const topBtn = document.getElementById("topBtn");
 
 // show button after scrolling
@@ -847,6 +865,21 @@ topBtn.addEventListener("click", function(){
     window.location.href = "/index.html";
   }, 100);
 });
+});
+</script>-->
+    <script>
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function(){
+  if(window.scrollY > 300){
+    topBtn.classList.add("show");
+  } else {
+    topBtn.classList.remove("show");
+  }
+});
+
+topBtn.addEventListener("click", function(){
+  window.location.href = "/index.html";
 });
 </script>
 </body>
