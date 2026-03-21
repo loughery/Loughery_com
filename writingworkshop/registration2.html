@@ -75,6 +75,31 @@ button:hover{
   width:auto;
   margin-right:10px;
 }
+/*  NEW HOME BUTTON  */
+.button-row{
+  display:flex;
+  gap:10px;
+}
+
+.home-btn{
+  display:inline-block;
+  background:var(--ink);
+  color:white;
+  padding:12px 20px;
+  text-decoration:none;
+  font-size:1rem;
+}
+
+.home-btn:hover{
+  background:#333;
+} 
+
+/* ALLOW EQUAL SIZING */
+.button-row button,
+.button-row .home-btn{
+  flex:1;
+  text-align:center;
+}  
 
 #receipt{
   display:none;
@@ -159,7 +184,10 @@ We look forward to seeing you.-->
     <label for="reminder">Send me a reminder before the event</label>
   </div>
 
+<div class="button-row">
   <button type="submit">Register</button>
+  <a href="index.html" class="home-btn">Home</a>
+</div>
 </form>
 
 <!-- RECEIPT -->
