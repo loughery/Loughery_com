@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Register | Writing Workshop</title>
+
+<style>
+:root{
+  --ink:#111111;
+  --soft-ink:#2d2d2d;
+  --paper:#f7f3eb;
+  --line:#d9d0c2;
+  --accent:#0067b8;
+  --accent-dark:#004e8c;
+  --form-bg:#ffffff;
+  --muted:#666666;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+  --radius:18px;
+  --max:980px;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.wrap{
+  width:min(var(--max), calc(100% - 32px));
+  margin:0 auto;
+}
+
+.top-rule{
+  height:8px;
+  background:linear-gradient(to right,#000 0%,#000 100%);
+}
+
+header{
+  border-bottom:1px solid var(--line);
+  background:rgba(247,243,235,.96);
+  text-align:center;
+  padding:20px 0;
+}
+
+.site-title{
+  font-size:2.5rem;
+  margin:0;
+}
+
+nav{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  text-align:center;
+  padding:12px 0;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+nav a{
+  margin:0 14px;
+}
+
+main{
+  padding:40px 0;
+}
+
+.register-shell{
+  background:#fff;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+
+h2{
+  margin-top:0;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+}
+
+.field.full{
+  grid-column:1 / -1;
+}
+
+input, textarea, select{
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+button{
+  padding:14px;
+  border:none;
+  background:var(--accent);
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+button:hover{
+  background:var(--accent-dark);
+}
+
+.actions{
+  margin-top:20px;
+  display:flex;
+  gap:12px;
+}
+
+@media(max-width:700px){
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-rule"></div>
+
+<header>
+  <h1 class="site-title">Workshop Registration</h1>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="registration.html">Register</a>
+</nav>
+
+<main class="wrap">
+
+<div class="register-shell">
+
+<h2>Reserve Your Seat</h2>
+<p>Please complete the form below to register for this free workshop.</p>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+
+<input type="hidden" name="access_key" value="f7f9f99c-45aa-44f5-8057-9d058ffd057f">
+
+<div class="form-grid">
+
+<div class="field">
+<label>First Name</label>
+<input type="text" name="First Name" required>
+</div>
+
+<div class="field">
+<label>Last Name</label>
+<input type="text" name="Last Name" required>
+</div>
+
+<div class="field">
+<label>Email</label>
+<input type="email" name="Email" required>
+</div>
+
+<div class="field">
+<label>Phone</label>
+<input type="tel" name="Phone">
+</div>
+
+<div class="field full">
+<label>Interest</label>
+<select name="Primary Interest">
+<option>Learning how to start writing</option>
+<option>Journaling</option>
+<option>Short stories</option>
+</select>
+</div>
+
+<div class="field full">
+<label>Comments</label>
+<textarea name="Comments"></textarea>
+</div>
+
+</div>
+
+<div class="actions">
+<button type="submit">Register</button>
+<button type="reset">Clear</button>
+</div>
+
+</form>
+
+</div>
+
+</main>
+
+</body>
+</html>
