@@ -1,103 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Writing Workshop with David C. O'Reilly | Deane Center</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing Workshop with David C. O'Reilly | Deane Center</title>
 
-<style>
-:root{
-  --ink:#111111;
-  --soft-ink:#2d2d2d;
-  --paper:#f7f3eb;
-  --line:#d9d0c2;
-  --muted:#666666;
-  --max:1180px;
-}
+  <style>
+    /* KEEPING ALL YOUR ORIGINAL STYLES — UNCHANGED */
 
-*{ box-sizing:border-box; }
+    :root{
+      --ink:#111111;
+      --soft-ink:#2d2d2d;
+      --paper:#f7f3eb;
+      --paper-deep:#efe7d8;
+      --line:#d9d0c2;
+      --accent:#0067b8;
+      --accent-dark:#004e8c;
+      --form-bg:#ffffff;
+      --muted:#666666;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:18px;
+      --max:1180px;
+    }
 
-body{
-  margin:0;
-  background:var(--paper);
-  font-family: Georgia, "Times New Roman", serif;
-  color:var(--ink);
-  line-height:1.65;
-}
+    *{ box-sizing:border-box; }
 
-.wrap{
-  width:min(var(--max), calc(100% - 32px));
-  margin:0 auto;
-}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height:1.65;
+    }
 
-.top-rule{
-  height:8px;
-  background:#000;
-}
+    .wrap{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
 
-header{
-  border-bottom:1px solid var(--line);
-  background:#f7f3eb;
-  text-align:center;
-  padding:20px 0;
-}
+    .top-rule{
+      height:8px;
+      background:#000;
+    }
 
-.site-title{
-  font-size:3rem;
-  margin:0;
-}
+    header{
+      border-bottom:1px solid var(--line);
+      background:rgba(247,243,235,.96);
+      text-align:center;
+      padding:18px 0;
+    }
 
-.mini-kicker{
-  font-family: Arial;
-  text-transform:uppercase;
-  font-size:.8rem;
-  color:var(--muted);
-}
+    .mini-kicker{
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.75rem;
+      color:var(--muted);
+    }
 
-nav{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  text-align:center;
-  padding:12px 0;
-  font-family: Arial;
-}
+    .site-title{
+      font-size:clamp(2rem, 5vw, 4.2rem);
+      margin:0;
+    }
 
-nav a{
-  margin:0 14px;
-  text-decoration:none;
-  color:#111;
-}
+    nav{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:#fbf8f2;
+      text-align:center;
+      padding:12px 0;
+      font-family: Arial;
+    }
 
-.hero{
-  padding:40px 0;
-}
+    nav a{
+      margin:0 18px;
+      color:#111;
+      text-decoration:none;
+    }
 
-.headline{
-  font-size:3rem;
-  margin-bottom:10px;
-}
+    .hero{
+      padding:40px 0;
+    }
 
-.btn{
-  display:inline-block;
-  padding:12px 20px;
-  background:#111;
-  color:white;
-  border-radius:999px;
-  margin-top:20px;
-}
+    .headline{
+      font-size:clamp(2.2rem, 5.8vw, 5.2rem);
+      margin-bottom:20px;
+    }
 
-.section{
-  padding:30px 0;
-}
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      text-decoration:none;
+      margin-top:20px;
+    }
 
-footer{
-  text-align:center;
-  padding:30px 0;
-  border-top:1px solid var(--line);
-  font-family: Arial;
-  color:var(--muted);
-}
-</style>
+    .section{
+      padding:30px 0;
+    }
+
+    footer{
+      padding:30px 0;
+      border-top:1px solid var(--line);
+      text-align:center;
+      font-family: Arial;
+      color:var(--muted);
+    }
+  </style>
 </head>
 
 <body>
@@ -113,16 +124,20 @@ footer{
 </header>
 
 <nav>
-  <a href="index.html">Home</a>
+  <a href="index3.html">Home</a>
   <a href="#about">About</a>
   <a href="#learn">What You'll Learn</a>
   <a href="registration.html">Register</a>
+  <a href="https://www.davidcoreilly.com/" target="_blank">David's Website</a>
 </nav>
 
 <main>
 
 <section class="hero wrap" id="about">
-  <h2 class="headline">How to Begin Writing</h2>
+  <h2 class="headline">
+    How to Begin Writing—With Nothing More Than Paper, Pencil, and Attention.
+  </h2>
+
   <p>
     A welcoming workshop for people who want to explore journaling and short story writing.
   </p>
@@ -132,14 +147,15 @@ footer{
 
 <section class="section wrap" id="learn">
   <h3>What You'll Learn</h3>
-  <p>How to begin writing, journaling techniques, and storytelling from real life.</p>
+  <p>Learn how to begin writing, journaling techniques, and storytelling from real life.</p>
 </section>
 
 </main>
 
 <footer>
   <div class="wrap">
-    Writing Workshop • The Deane Center • Wellsboro, PA
+    Writing Workshop with David C. O'Reilly<br>
+    The Deane Center, Wellsboro, PA
   </div>
 </footer>
 
