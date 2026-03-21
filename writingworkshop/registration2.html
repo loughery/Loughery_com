@@ -45,6 +45,9 @@ input, textarea{
   border:1px solid #ccc;
   font-size:1rem;
   background:white;
+
+  /* MATCH SITE TYPOGRAPHY */
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 input:focus, textarea:focus{
@@ -101,6 +104,56 @@ button:hover{
   text-align:center;
 }  
 
+/* ===== STICKY NAV ===== */
+.top-nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(247,243,235,0.95);
+  backdrop-filter: blur(6px);
+  padding:10px 20px;
+  border-bottom:1px solid rgba(0,0,0,0.08);
+
+  /* fade-in animation */
+  opacity:0;
+  transform:translateY(-10px);
+  animation:fadeSlideDown 0.6s ease forwards;
+}
+
+@keyframes fadeSlideDown{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* BUTTON ROW */
+.button-row{
+  max-width:700px;
+  margin:0 auto;
+  display:flex;
+  gap:10px;
+}
+
+/* MATCH BUTTON STYLES */
+.button-row button,
+.home-btn{
+  flex:1;
+  text-align:center;
+  background:var(--ink);
+  color:white;
+  padding:12px 20px;
+  border:none;
+  font-size:1rem;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.button-row button:hover,
+.home-btn:hover{
+  background:#333;
+}
+  
 #receipt{
   display:none;
   margin-top:40px;
@@ -123,6 +176,11 @@ button:hover{
 </head>
 
 <body>
+
+<div class="button-row">
+  <button type="submit">Register</button>
+  <a href="index.html" class="home-btn">Back to Event Page</a>
+</div>  
 
 <div class="container">
 
@@ -186,7 +244,7 @@ We look forward to seeing you.-->
 
 <div class="button-row">
   <button type="submit">Register</button>
-  <a href="index.html" class="home-btn">Home</a>
+  <a href="index.html" class="home-btn">Back to Event Page</a>
 </div>
 </form>
 
