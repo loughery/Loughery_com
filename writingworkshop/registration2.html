@@ -104,22 +104,6 @@ button:hover{
   text-align:center;
 }  
 
-/* ===== STICKY NAV ===== */
-.top-nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(247,243,235,0.95);
-  backdrop-filter: blur(6px);
-  padding:10px 20px;
-  border-bottom:1px solid rgba(0,0,0,0.08);
-
-  /* fade-in animation */
-  opacity:0;
-  transform:translateY(-10px);
-  animation:fadeSlideDown 0.6s ease forwards;
-}
-
 @keyframes fadeSlideDown{
   to{
     opacity:1;
@@ -153,6 +137,36 @@ button:hover{
 .home-btn:hover{
   background:#333;
 }
+.receipt-buttons{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+}
+
+.receipt-buttons button,
+.receipt-buttons .home-btn{
+  flex:1;
+  text-align:center;
+}
+
+/* Ensure home button matches */
+.home-btn{
+  display:inline-block;
+  background:var(--ink);
+  color:white;
+  padding:12px 20px;
+  text-decoration:none;
+  font-size:1rem;
+}
+
+.home-btn:hover{
+  background:#333;
+}  
+
+.receipt-buttons{
+  border-top:1px solid rgba(0,0,0,0.08);
+  padding-top:20px;
+}
   
 #receipt{
   display:none;
@@ -176,11 +190,6 @@ button:hover{
 </head>
 
 <body>
-
-<div class="button-row">
-  <button type="submit">Register</button>
-  <a href="index.html" class="home-btn">Back to Event Page</a>
-</div>  
 
 <div class="container">
 
@@ -207,10 +216,10 @@ Hello,
 This message confirms your registration.
 
 Event Details:
-Writing Workshop with David C. O'Reilly
-Friday, July 17, 2026
-1:00 PM
-Deane Center, Wellsboro, PA
+WHAT: Writing Workshop with David C. O'Reilly
+WHEN: Friday, July 17, 2026
+TIME: 1:00 PM
+LOCATION: Deane Center, Wellsboro, PA
 
 Please bring paper and pencil.
 
@@ -218,17 +227,6 @@ This is your official confirmation. You may print this email for your records.
 
 We look forward to seeing you.
 ">
-    
-<!--Thank you for registering for the Writing Workshop with David C. O'Reilly.
-
-Event Details:
-Friday, July 17, 2026
-1:00 PM
-Deane Center, Wellsboro, PA
-
-Please bring paper and pencil.
-
-We look forward to seeing you.-->
 
   <!-- USER INPUT -->
   <input type="text" name="First Name" placeholder="First Name" required autocomplete="off">
@@ -253,7 +251,10 @@ We look forward to seeing you.-->
   <h2>Registration Confirmed</h2>
   <p id="receiptText"></p>
 
-  <button class="print-btn" onclick="window.print()">Print Confirmation</button>
+  <div class="button-row receipt-buttons">
+    <button class="print-btn" onclick="window.print()">Print Confirmation</button>
+    <a href="index.html" class="home-btn">← Back to Event Page</a>
+  </div>
 </div>
 
 </div>
