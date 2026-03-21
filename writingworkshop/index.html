@@ -557,7 +557,39 @@ section {
       margin-top:14px;
     }
 
-    footer{
+/* ===== FLOATING TOP BUTTON ===== */
+#topBtn{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  z-index:999;
+
+  background:var(--ink);
+  color:white;
+  border:none;
+
+  padding:10px 14px;
+  font-size:0.9rem;
+  cursor:pointer;
+
+  display:none; /* hidden until scroll */
+  opacity:0;
+  transform:translateY(10px);
+  transition:all 0.3s ease;
+}
+
+#topBtn:hover{
+  background:#333;
+}
+
+/* visible state */
+#topBtn.show{
+  display:block;
+  opacity:1;
+  transform:translateY(0);
+}
+
+    .footer{
       padding:22px 0 42px;
       border-top:1px solid var(--line);
       text-align:center;
@@ -626,9 +658,9 @@ section {
 
     <nav>
       <div class="wrap nav-inner">
-        <a href="https://www.loughery.com/writingworkshop/index.html">Home</a>
-        <a href="#about">About</a>
+        <!--<a href="https://www.loughery.com/writingworkshop/index.html">Home</a>-->
         <a href="#learn">What You'll Learn</a>
+        <a href="#about">About</a>
         <a href="registration.html">Register</a>
         <a href="https://www.davidcoreilly.com/" target="_blank" rel="noopener noreferrer">David's Website</a>
       </div>
@@ -734,5 +766,28 @@ section {
       <div class="tiny">The Deane Center, 104 Main St, Wellsboro, PA 16901</div>
     </div>
 </footer>
+
+<button id="topBtn" title="Back to top">↑ Top</button>
+
+<script>
+const topBtn = document.getElementById("topBtn");
+
+// show button after scrolling
+window.addEventListener("scroll", function(){
+  if(window.scrollY > 300){
+    topBtn.classList.add("show");
+  } else {
+    topBtn.classList.remove("show");
+  }
+});
+
+// smooth scroll to top
+topBtn.addEventListener("click", function(){
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+});
+</script>
 </body>
 </html>
