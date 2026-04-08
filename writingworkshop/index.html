@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing Workshop</title>
+
+<style>
+
+/* Base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f3eb;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #111;
+  overflow: hidden;
+}
+
+/* Subtle Paper Texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: .4;
+  pointer-events: none;
+}
+
+/* Message Container */
+.message {
+  text-align: center;
+  padding: 40px;
+  animation: fadeIn 1.8s ease forwards;
+  opacity: 0;
+}
+
+/* Main Text */
+.message h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 500;
+  letter-spacing: .02em;
+  margin: 0;
+}
+
+/* Optional subtle rule */
+.rule {
+  width: 60px;
+  height: 1px;
+  background: #999;
+  margin: 20px auto 0 auto;
+  opacity: .5;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="message">
+  <h1>Writing Workshop Suspended</h1>
+  <div class="rule"></div>
+</div>
+
+</body>
+</html>
